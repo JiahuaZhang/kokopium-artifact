@@ -34,7 +34,15 @@ export const ArtifactEnhanceBox = (props: Props) => {
 
   return (
     <Card size='small' title={title} className='inline-block'>
-      {artifact.enhance[0].name} - {artifact.enhance[0].value}
+      <ul>
+        {artifact.enhance
+          .filter((enhance) => enhance.name)
+          .map((e) => (
+            <li key={e.name}>
+              {e.name} - {e.value}
+            </li>
+          ))}
+      </ul>
     </Card>
   );
 };
