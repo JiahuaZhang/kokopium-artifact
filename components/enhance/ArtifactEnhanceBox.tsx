@@ -1,6 +1,7 @@
 import { Card, Rate } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 import { Artifact_Enhance } from '../../src/state/artifact';
+import { ArtifactEnhanceBoxModal } from './ArtifactEnhanceBoxModal';
 import { ArtifactStatTag } from './ArtifactStatTag';
 
 interface Props {
@@ -11,12 +12,11 @@ interface Props {
 
 export const ArtifactEnhanceBox = (props: Props) => {
   const { artifact, update, remove } = props;
-
-  // todo, add update, remove function
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const title = (
     <div>
-      <Rate value={artifact.artifact_rarity} />
+      <Rate disabled value={artifact.artifact_rarity} />
       <h1>
         {artifact.artifact_type?.split(' ')[0]} - {artifact.main_stat}
       </h1>
@@ -33,16 +33,27 @@ export const ArtifactEnhanceBox = (props: Props) => {
   );
 
   return (
-    <Card size='small' title={title} className='inline-block'>
-      <ul>
-        {artifact.enhance
-          .filter((enhance) => enhance.name)
-          .map((e) => (
+    <div className='inline-block'>
+      <Card
+        size='small'
+        title={title}
+        className='inline-block'
+        onDoubleClick={() => setIsModalOpen(true)}>
+        <ul>
+          {artifact.enhance.map((e) => (
             <li key={e.name}>
               {e.name} - {e.value}
             </li>
           ))}
-      </ul>
-    </Card>
+        </ul>
+      </Card>
+      <ArtifactEnhanceBoxModal
+        artifact={artifact}
+        is_visible={isModalOpen}
+        set_is_visible={setIsModalOpen}
+        remove={remove}
+        update={update}
+      />
+    </div>
   );
 };
