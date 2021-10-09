@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import { useState } from 'react';
+import { ArtifactEnhanceAnalysis } from '../components/enhance/ArtifactEnhanceAnalysis';
 import { ArtifactEnhanceHistory } from '../components/enhance/ArtifactEnhanceHistory';
 import { EnhanceArtifact } from '../components/enhance/EnhanceArtifact';
 import { Artifact_Enhance } from '../src/state/artifact';
@@ -11,7 +12,7 @@ const Enhance: NextPage = () => {
     <div>
       <ArtifactEnhanceHistory state={state} setState={setState} />
 
-      {/* todo: analysis */}
+      <ArtifactEnhanceAnalysis artifact_enhance={state} />
       {/* todo: json debug? */}
 
       <EnhanceArtifact add={(artifactEnhance) => setState((prev) => [...prev, artifactEnhance])} />
