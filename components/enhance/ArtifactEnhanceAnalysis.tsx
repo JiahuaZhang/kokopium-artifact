@@ -9,6 +9,7 @@ interface Props {
 const columns = [
   { title: 'Attribute', dataIndex: 'attribute', key: 'attribute' },
   { title: 'Count', dataIndex: 'count', key: 'count' },
+  { title: 'Existed Count', dataIndex: 'existedCount', key: 'existedCount' },
   {
     title: 'Sequence',
     dataIndex: 'sequence',
@@ -18,18 +19,24 @@ const columns = [
 ];
 
 const getStats = (artifact_enhance: Artifact_Enhance[]) => {
-  const data: { key: string; attribute: string; count: number; sequence: number[] }[] = [
-    { key: '1', attribute: 'hp', count: 0, sequence: [] },
-    { key: '2', attribute: 'hp%', count: 0, sequence: [] },
-    { key: '3', attribute: 'def', count: 0, sequence: [] },
-    { key: '4', attribute: 'def%', count: 0, sequence: [] },
-    { key: '5', attribute: 'atk', count: 0, sequence: [] },
-    { key: '6', attribute: 'atk%', count: 0, sequence: [] },
-    { key: '7', attribute: 'elemental mastery', count: 0, sequence: [] },
-    { key: '8', attribute: 'energy recharge', count: 0, sequence: [] },
-    { key: '9', attribute: 'crit rate%', count: 0, sequence: [] },
-    { key: '10', attribute: 'crit dmg%', count: 0, sequence: [] },
-    { key: '11', attribute: 'total', count: 0, sequence: [] },
+  const data: {
+    key: string;
+    attribute: string;
+    count: number;
+    existedCount: number;
+    sequence: number[];
+  }[] = [
+    { key: '1', attribute: 'hp', count: 0, existedCount: 0, sequence: [] },
+    { key: '2', attribute: 'hp%', count: 0, existedCount: 0, sequence: [] },
+    { key: '3', attribute: 'def', count: 0, existedCount: 0, sequence: [] },
+    { key: '4', attribute: 'def%', count: 0, existedCount: 0, sequence: [] },
+    { key: '5', attribute: 'atk', count: 0, existedCount: 0, sequence: [] },
+    { key: '6', attribute: 'atk%', count: 0, existedCount: 0, sequence: [] },
+    { key: '7', attribute: 'elemental mastery', count: 0, existedCount: 0, sequence: [] },
+    { key: '8', attribute: 'energy recharge', count: 0, existedCount: 0, sequence: [] },
+    { key: '9', attribute: 'crit rate%', count: 0, existedCount: 0, sequence: [] },
+    { key: '10', attribute: 'crit dmg%', count: 0, existedCount: 0, sequence: [] },
+    { key: '11', attribute: 'total', count: 0, existedCount: 0, sequence: [] },
   ];
 
   artifact_enhance.forEach((enhance, index) => {
@@ -40,6 +47,22 @@ const getStats = (artifact_enhance: Artifact_Enhance[]) => {
         data[dataIndex].sequence.push(index + 1);
 
         data[10].count += 1;
+      }
+    });
+
+    if (enhance.main_stat) {
+      const dataIndex = data.findIndex((d) => d.attribute === enhance.main_stat);
+      data[dataIndex].existedCount += 1;
+
+      data[10].existedCount += 1;
+    }
+
+    enhance.sub_stats?.forEach((s) => {
+      if (s.name) {
+        const dataIndex = data.findIndex((d) => d.attribute === s.name);
+        data[dataIndex].existedCount += 1;
+
+        data[10].existedCount += 1;
       }
     });
   });
