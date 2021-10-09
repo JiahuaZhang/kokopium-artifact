@@ -52,6 +52,8 @@ const getStats = (artifact_enhance: Artifact_Enhance[]) => {
 
     if (enhance.main_stat) {
       const dataIndex = data.findIndex((d) => d.attribute === enhance.main_stat);
+      if (dataIndex === -1) return;
+
       data[dataIndex].existedCount += 1;
 
       data[10].existedCount += 1;
