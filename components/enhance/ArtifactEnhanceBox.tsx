@@ -1,7 +1,8 @@
 import { Card, Rate } from 'antd';
 import React, { useState } from 'react';
-import { Artifact_Enhance } from '../../src/state/artifact';
+import { Artifact_Enhance, Artifact_Sub_Stat } from '../../src/state/artifact';
 import { ArtifactEnhanceBoxModal } from './ArtifactEnhanceBoxModal';
+import { ArtifactEnhanceStatTag } from './ArtifactEnhanceStatTag';
 import { ArtifactStatTag } from './ArtifactStatTag';
 
 interface Props {
@@ -42,7 +43,7 @@ export const ArtifactEnhanceBox = (props: Props) => {
         <ul>
           {artifact.enhance.map((e) => (
             <li key={e.name}>
-              {e.name} - {e.value}
+              <ArtifactEnhanceStatTag artifact={artifact} enhance={e} />
             </li>
           ))}
         </ul>

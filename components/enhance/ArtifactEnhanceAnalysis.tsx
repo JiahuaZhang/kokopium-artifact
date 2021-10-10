@@ -1,5 +1,5 @@
+/** @jsxImportSource @emotion/react */
 import { Table } from 'antd';
-import React from 'react';
 import { Artifact_Enhance } from '../../src/state/artifact';
 
 interface Props {
@@ -7,7 +7,11 @@ interface Props {
 }
 
 const columns = [
-  { title: 'Attribute', dataIndex: 'attribute', key: 'attribute' },
+  {
+    title: 'Attribute',
+    dataIndex: 'attribute',
+    key: 'attribute',
+  },
   { title: 'Count', dataIndex: 'count', key: 'count' },
   { title: 'Existed Count', dataIndex: 'existedCount', key: 'existedCount' },
   {
@@ -105,7 +109,20 @@ export const ArtifactEnhanceAnalysis = (props: Props) => {
 
   return (
     <div>
-      <Table dataSource={getStats(artifact_enhance)} columns={columns} pagination={false} />
+      <Table
+        size='small'
+        dataSource={getStats(artifact_enhance)}
+        columns={columns}
+        pagination={false}
+        css={{
+          '& tbody tr:nth-child(1n+7)': {
+            background: '#FEF3C7',
+          },
+          '& tbody tr:last-child': {
+            background: 'transparent',
+          },
+        }}
+      />
       <ul className='m-2 text-base'>
         {distances.map((distance, index) => (
           <li key={index}> {distance.join(', ')} </li>
