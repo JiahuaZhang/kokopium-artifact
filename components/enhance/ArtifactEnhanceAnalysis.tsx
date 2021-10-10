@@ -47,6 +47,7 @@ const getStats = (artifact_enhance: Artifact_Enhance[]) => {
     enhance.enhance.forEach((e) => {
       if (e.name) {
         const dataIndex = data.findIndex((d) => d.attribute === e.name);
+        if (dataIndex === -1) return;
         data[dataIndex].count += 1;
         data[dataIndex].sequence.push(index + 1);
 
@@ -66,6 +67,7 @@ const getStats = (artifact_enhance: Artifact_Enhance[]) => {
     enhance.sub_stats?.forEach((s) => {
       if (s.name) {
         const dataIndex = data.findIndex((d) => d.attribute === s.name);
+        if (dataIndex === -1) return;
         data[dataIndex].existedCount += 1;
 
         data[10].existedCount += 1;
