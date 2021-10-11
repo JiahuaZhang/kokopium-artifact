@@ -1,8 +1,9 @@
 import { Card, Rate } from 'antd';
 import React, { useState } from 'react';
-import { Artifact_Enhance, Artifact_Sub_Stat } from '../../src/state/artifact';
+import { Artifact_Enhance } from '../../src/state/artifact';
 import { ArtifactEnhanceBoxModal } from './ArtifactEnhanceBoxModal';
 import { ArtifactEnhanceStatTag } from './ArtifactEnhanceStatTag';
+import { ArtifactMainStatTag } from './ArtifactMainStatTag';
 import { ArtifactStatTag } from './ArtifactStatTag';
 
 interface Props {
@@ -19,10 +20,9 @@ export const ArtifactEnhanceBox = (props: Props) => {
     <div>
       <Rate disabled value={artifact.artifact_rarity} />
       <h1>
-        {artifact.artifact_type?.split(' ')[0]} - {artifact.main_stat}
+        {artifact.artifact_type?.split(' ')[0]} - <ArtifactMainStatTag artifact={artifact} />
       </h1>
       <p>
-        substat:
         {artifact.sub_stats
           ?.map((stat) => stat.name)
           .filter(Boolean)
