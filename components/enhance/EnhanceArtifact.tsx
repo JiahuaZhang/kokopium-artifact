@@ -1,4 +1,4 @@
-import { AutoComplete, Button, Col, Form, Input, Radio, Rate, Row, Select } from 'antd';
+import { AutoComplete, Button, Col, Form, Input, Radio, Rate, Row, Select, Space } from 'antd';
 import React from 'react';
 import { v4 } from 'uuid';
 import {
@@ -83,6 +83,34 @@ export const EnhanceArtifact = (props: Props) => {
         labelCol={{ span: 10 }}>
         <Row gutter={[0, 0]} className='w-full'>
           <Col span={12}>
+            <header className='text-center text-2xl mb-2'>Current stat:</header>
+            <Form.Item label='rarity' name='rarity' className='mb-2'>
+              <Rate />
+            </Form.Item>
+            {/* todo: icon base radio, flower, plume, sands, goblet, circlet */}
+            <Form.Item label='type' name='type'>
+              <Radio.Group>
+                {ALL_ARTIFACT_TYPE.map((type) => (
+                  <Radio.Button value={type} key={type}>
+                    {type}
+                  </Radio.Button>
+                ))}
+              </Radio.Group>
+            </Form.Item>
+            <Form.Item label='main stat' name='mainStat'>
+              <AutoComplete options={artifact_main_stat_options} filterOption={true} allowClear />
+            </Form.Item>
+            <Form.Item label='sub stats' name='subStats'>
+              <Select options={artifact_sub_stat_options} mode='multiple' />
+            </Form.Item>
+            {/* todo? more detail version of current sub-stats, record existed values as well */}
+            {/* todo? add submit box but keep current stats fields only */}
+            <Form.Item wrapperCol={{ offset: 10 }}>
+              <Button onClick={() => form.resetFields()}>Clear</Button>
+            </Form.Item>
+          </Col>
+
+          <Col span={12}>
             <header className='text-center text-2xl mb-2'>Enhance stat:</header>
             <Form.Item label='attribute 1' name='attribute1' className='m-0' required>
               <AutoComplete options={artifact_sub_stat_options} filterOption={true} allowClear />
@@ -108,38 +136,21 @@ export const EnhanceArtifact = (props: Props) => {
             <Form.Item label='value 4' name='value4' className='m-0 mb-2'>
               <Input type='number' step='0.01' />
             </Form.Item>
-            <Form.Item wrapperCol={{ offset: 10 }}>
-              <Button onClick={() => form.resetFields()}>Clear</Button>
-            </Form.Item>
-          </Col>
 
-          <Col span={12}>
-            <header className='text-center text-2xl mb-2'>Current stat:</header>
-            <Form.Item label='rarity' name='rarity' className='mb-2'>
-              <Rate />
-            </Form.Item>
-            {/* todo: icon base radio, flower, plume, sands, goblet, circlet */}
-            <Form.Item label='type' name='type'>
-              <Radio.Group>
-                {ALL_ARTIFACT_TYPE.map((type) => (
-                  <Radio.Button value={type} key={type}>
-                    {type}
-                  </Radio.Button>
-                ))}
-              </Radio.Group>
-            </Form.Item>
-            <Form.Item label='main stat' name='mainStat'>
-              <AutoComplete options={artifact_main_stat_options} filterOption={true} allowClear />
-            </Form.Item>
-            <Form.Item label='sub stats' name='subStats'>
-              <Select options={artifact_sub_stat_options} mode='multiple' />
-            </Form.Item>
-            {/* todo? more detail version of current sub-stats, record existed values as well */}
-            {/* todo? add submit box but keep current stats fields only */}
             <Form.Item className='text-right'>
-              <Button htmlType='submit' type='primary'>
-                Submit
-              </Button>
+              <Space size='large'>
+                <Button
+                  onClick={() => {
+                    form.submit();
+                    setTimeout(() => form.resetFields());
+                  }}>
+                  Submit & Clear
+                </Button>
+
+                <Button htmlType='submit' type='primary'>
+                  Submit
+                </Button>
+              </Space>
             </Form.Item>
           </Col>
         </Row>
