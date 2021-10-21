@@ -95,13 +95,13 @@ export const ArtifactEnhanceBoxModal = (props: Props) => {
               { name: sub_stat2, value: sub_stat2_value },
               { name: sub_stat3, value: sub_stat3_value },
               { name: sub_stat4, value: sub_stat4_value },
-            ],
+            ].filter((stat) => stat.name),
             enhance: [
               { name: enhance_stat1, value: enhance_stat1_value },
               { name: enhance_stat2, value: enhance_stat2_value },
               { name: enhance_stat3, value: enhance_stat3_value },
               { name: enhance_stat4, value: enhance_stat4_value },
-            ],
+            ].filter((stat) => stat.name),
           } as Artifact_Enhance;
           update(new_artifact);
         }}>

@@ -7,10 +7,11 @@ import {
   Artifact_Stat_Enhance,
   Artifact_Sub_Stat,
 } from '../../src/state/artifact';
+import { Artifact_Drop, Artifact_Drop_Sub_Stat } from '../../src/state/artifact_drop';
 
 interface Props {
-  artifact: Artifact_Enhance;
-  enhance: Artifact_Stat_Enhance;
+  artifact: Artifact_Enhance | Artifact_Drop;
+  enhance: Artifact_Stat_Enhance | Artifact_Drop_Sub_Stat;
 }
 
 const tierClassName = ['', 'bg-yellow-200', 'bg-purple-200', 'bg-blue-200', 'bg-green-200'];
@@ -37,8 +38,8 @@ export const ArtifactEnhanceStatTag = (props: Props) => {
 
   return (
     <>
-      <Tag className={`${className} rounded`}>{enhance.name}</Tag> -{' '}
-      <Tag className={`${tierClassName[tier]} rounded inline-grid grid-cols-2 items-center`}>
+      <Tag className={`${className} rounded`}>{enhance.name}</Tag> -
+      <Tag className={`${tierClassName[tier]} rounded inline-grid grid-cols-2 items-center ml-2`}>
         {enhance.value} {isMultiple && <PlusCircleTwoTone />}
       </Tag>
     </>

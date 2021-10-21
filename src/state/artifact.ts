@@ -8,9 +8,15 @@ export type Plume_Artifact_Main_Stat = 'atk';
 
 export type Sands_Artifact_Main_Stat = 'hp%' | 'atk%' | 'def%' | 'elemental mastery' | 'energy recharge';
 
+export const ALL_SANDS_ARTIFACT_MAIN_STAT: Sands_Artifact_Main_Stat[] = ['hp%', 'atk%', 'def%', 'elemental mastery', 'energy recharge'];
+
 export type Goblet_Artifact_Main_Stat = 'hp%' | 'atk%' | 'def%' | 'elemental mastery' | 'elemental dmg bonus%' | 'physical dmg bonus%';
 
+export const ALL_GOBLET_ARTIFACT_MAIN_STAT: Goblet_Artifact_Main_Stat[] = ['hp%', 'atk%', 'def%', 'elemental mastery', 'elemental dmg bonus%', 'physical dmg bonus%'];
+
 export type Circlet_Artifact_Main_Stat = 'hp%' | 'atk%' | 'def%' | 'elemental mastery' | 'crit rate%' | 'crit dmg%' | 'healing bonus%';
+
+export const ALL_CIRCLET_ARTIFACT_MAIN_STAT: Circlet_Artifact_Main_Stat[] = ['hp%', 'atk%', 'def%', 'elemental mastery', 'crit rate%', 'crit dmg%', 'healing bonus%'];
 
 export type Artifact_Main_Stat = Flower_Artifact_Main_Stat | Plume_Artifact_Main_Stat | Sands_Artifact_Main_Stat | Goblet_Artifact_Main_Stat | Circlet_Artifact_Main_Stat;
 
@@ -211,3 +217,27 @@ export interface Artifact_Enhance {
   sub_stats?: Artifact_Stat_Enhance[];
   enhance: Artifact_Stat_Enhance[];
 }
+
+
+export const ARTIFACT_IMAGES: { type: Artifact_Type, url: string; }[] = [
+  {
+    type: 'Flower of Life',
+    url: 'https://static.wikia.nocookie.net/gensin-impact/images/2/2d/Icon_Flower_of_Life.png',
+  },
+  {
+    type: 'Plume of Death',
+    url: 'https://static.wikia.nocookie.net/gensin-impact/images/8/8b/Icon_Plume_of_Death.png',
+  },
+  {
+    type: 'Sands of Eon',
+    url: 'https://static.wikia.nocookie.net/gensin-impact/images/9/9f/Icon_Sands_of_Eon.png',
+  },
+  {
+    type: 'Goblet of Eonothem',
+    url: 'https://static.wikia.nocookie.net/gensin-impact/images/3/37/Icon_Goblet_of_Eonothem.png',
+  },
+  {
+    type: 'Circlet of Logos',
+    url: 'https://static.wikia.nocookie.net/gensin-impact/images/6/64/Icon_Circlet_of_Logos.png',
+  },
+];

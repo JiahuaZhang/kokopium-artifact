@@ -1,9 +1,10 @@
 import { Tag } from 'antd';
 import React from 'react';
 import { Artifact_Enhance } from '../../src/state/artifact';
+import { Artifact_Drop } from '../../src/state/artifact_drop';
 
 interface Props {
-  artifact: Artifact_Enhance;
+  artifact: Artifact_Enhance | Artifact_Drop;
 }
 
 export const ArtifactMainStatTag = (props: Props) => {
