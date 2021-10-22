@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import React, { useEffect, useRef, useState } from 'react';
 import { Artifact_Drop, Artifact_Drop_Farm } from '../../src/state/artifact_drop';
 import { ArtifactBox } from './ArtifactBox';
@@ -13,23 +14,21 @@ interface Props {
 export const ArtifactDropFarm = (props: Props) => {
   const { artifact_drop_farm, update, remove } = props;
   const ref = useRef<HTMLDivElement>(null);
-  const [isFocus, setIsFocus] = useState(false);
+  const [showNewArtifactForm, setShowNewArtifactForm] = useState(false);
   const [showUpdatePopup, setShowUpdatePopup] = useState(false);
 
   useEffect(() => {
-    const onFocus = (event: FocusEvent) => {
-      setIsFocus(
-        ref.current === event.target || (ref.current?.contains(event.target as Node) as boolean)
-      );
+    const onClick = (event: MouseEvent) => {
+      setShowNewArtifactForm(ref.current?.contains(event.target as Node) as boolean);
     };
 
-    document.addEventListener('focusin', onFocus);
+    document.addEventListener('click', onClick);
 
-    return () => document.removeEventListener('focusin', onFocus);
+    return () => document.removeEventListener('click', onClick);
   }, []);
 
   return (
-    <div ref={ref} tabIndex={0} className='border-2 border-gray-300 pb-6'>
+    <div ref={ref} className='border-2 border-gray-300 pb-6'>
       <h1
         className='text-center text-lg font-medium'
         onDoubleClick={() => {
@@ -66,8 +65,15 @@ export const ArtifactDropFarm = (props: Props) => {
         />
       ))}
 
-      {isFocus && (
+      {!showNewArtifactForm && (
+        <Button className='block m-4 rounded text-right' type='primary'>
+          Add Artifact
+        </Button>
+      )}
+
+      {showNewArtifactForm && (
         <NewArtifact
+          close={() => setShowNewArtifactForm(false)}
           add={(artifact: Artifact_Drop) => {
             artifact_drop_farm.artifacts.push(artifact);
             update(artifact_drop_farm);

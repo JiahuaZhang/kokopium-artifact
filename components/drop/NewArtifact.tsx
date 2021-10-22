@@ -19,6 +19,7 @@ import { Artifact_Drop } from '../../src/state/artifact_drop';
 
 interface Props {
   add(artifact: Artifact_Drop): void;
+  close(): void;
 }
 
 interface SelectOption {
@@ -64,7 +65,7 @@ const getUpdateStatValueOptiosn = (form: FormInstance<any>, index: number): Sele
 };
 
 export const NewArtifact = (props: Props) => {
-  const { add } = props;
+  const { add, close } = props;
   const [form] = Form.useForm();
   const [mainStatOptions, setMainStatOptions] = useState<SelectOption[]>([]);
   const [subStat1Options, setSubStat1Options] = useState(sub_stat_options);
@@ -93,6 +94,7 @@ export const NewArtifact = (props: Props) => {
   return (
     <div className='mt-6'>
       <Form
+        onClick={(e) => e.stopPropagation()}
         form={form}
         className='max-w-lg'
         labelCol={{ span: 6 }}
@@ -215,6 +217,9 @@ export const NewArtifact = (props: Props) => {
 
         <Form.Item className='text-right'>
           <Space size='large'>
+            <Button className='bg-red-400 text-white rounded' onClick={(event) => close()}>
+              Close
+            </Button>
             <Button htmlType='submit' type='primary'>
               Submit
             </Button>
