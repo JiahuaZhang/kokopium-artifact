@@ -20,7 +20,7 @@ const getArtifactScore = (artifact: Artifact_Drop) => {
   const { artifact_type, main_stat = '', sub_stats } = artifact;
 
   let score = 0;
-  const weakStats = ['hp%', 'deft'];
+  const weakStats = ['hp%', 'def%'];
   if (artifact_type === 'Sands of Eon') {
     if (weakStats.includes(main_stat)) {
       score -= 1;
