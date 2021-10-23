@@ -220,13 +220,11 @@ export const NewArtifact = (props: Props) => {
             <Button className='bg-red-400 text-white rounded' onClick={(event) => close()}>
               Close
             </Button>
-            <Button htmlType='submit' type='primary'>
-              Submit
-            </Button>
 
             <Button onClick={() => form.resetFields()}>Clear</Button>
 
             <Button
+              type='primary'
               onClick={() => {
                 form.submit();
                 setTimeout(() => form.resetFields());
