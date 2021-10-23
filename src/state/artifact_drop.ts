@@ -19,6 +19,7 @@ export const ALL_ARTIFACT_DROP_FARM_TYPE: Artifact_Drop_Farm_Type[] = ['20', 'co
 
 export interface Artifact_Drop_Farm {
   id: string;
+  created: Date;
   type: Artifact_Drop_Farm_Type;
   description?: string;
   artifacts: Artifact_Drop[];

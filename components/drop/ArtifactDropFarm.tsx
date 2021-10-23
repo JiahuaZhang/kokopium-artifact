@@ -14,7 +14,7 @@ interface Props {
 export const ArtifactDropFarm = (props: Props) => {
   const { artifact_drop_farm, update, remove } = props;
   const ref = useRef<HTMLDivElement>(null);
-  const [showNewArtifactForm, setShowNewArtifactForm] = useState(false);
+  const [showNewArtifactForm, setShowNewArtifactForm] = useState(true);
   const [showUpdatePopup, setShowUpdatePopup] = useState(false);
 
   useEffect(() => {
@@ -34,7 +34,8 @@ export const ArtifactDropFarm = (props: Props) => {
         onDoubleClick={() => {
           setShowUpdatePopup(true);
         }}>
-        {artifact_drop_farm.description} - {artifact_drop_farm.type}
+        {artifact_drop_farm.description} - {artifact_drop_farm.type} @{' '}
+        {artifact_drop_farm.created.toDateString()}
         <UpdateArtifactDrop
           isVisible={showUpdatePopup}
           setIsVisible={setShowUpdatePopup}
