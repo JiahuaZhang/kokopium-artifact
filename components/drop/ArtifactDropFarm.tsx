@@ -1,4 +1,3 @@
-import { Button } from 'antd';
 import React, { useEffect, useRef, useState } from 'react';
 import { Artifact_Drop, Artifact_Drop_Farm } from '../../src/state/artifact_drop';
 import { ArtifactBox } from './ArtifactBox';
@@ -66,12 +65,6 @@ export const ArtifactDropFarm = (props: Props) => {
         />
       ))}
 
-      {!showNewArtifactForm && (
-        <Button className='block m-4 rounded text-right' type='primary'>
-          Add Artifact
-        </Button>
-      )}
-
       {showNewArtifactForm && (
         <NewArtifact
           close={() => setShowNewArtifactForm(false)}
@@ -83,6 +76,11 @@ export const ArtifactDropFarm = (props: Props) => {
       )}
 
       {/* todo analysis on the this drop farm */}
+      {/* count of main stat */}
+      {/* count of each stat, atk, def, hp crit etc -- substats only */}
+      {/* count of good stat? */}
+      {/* count of trash? */}
+      {/* count of crits? count of good main stat? count of def, atk, hp etc? */}
     </div>
   );
 };
