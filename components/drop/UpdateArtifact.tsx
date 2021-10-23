@@ -110,6 +110,7 @@ export const UpdateArtifact = (props: Props) => {
         labelCol={{ span: 6 }}
         onFinish={(values: Artifact_Drop) => {
           values.id = artifact.id;
+          values.sub_stats = values.sub_stats.filter((stat) => stat.name);
           update(values);
         }}>
         <header className='text-center font-medium text-md'>New Artifact: </header>
