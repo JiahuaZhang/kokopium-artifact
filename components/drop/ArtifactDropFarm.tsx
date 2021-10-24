@@ -34,7 +34,7 @@ export const ArtifactDropFarm = (props: Props) => {
           setShowUpdatePopup(true);
         }}>
         {artifact_drop_farm.description} - {artifact_drop_farm.type} @{' '}
-        {artifact_drop_farm.created.toDateString()}
+        {new Date(artifact_drop_farm.created).toDateString()}
         <UpdateArtifactDrop
           isVisible={showUpdatePopup}
           setIsVisible={setShowUpdatePopup}

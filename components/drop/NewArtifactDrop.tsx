@@ -40,7 +40,7 @@ export const NewArtifactDrop = (props: Props) => {
 
             const new_artifact_drop_farm = {
               id: v4(),
-              created: new Date(),
+              created: new Date().toString(),
               description,
               type,
               artifacts: [],
