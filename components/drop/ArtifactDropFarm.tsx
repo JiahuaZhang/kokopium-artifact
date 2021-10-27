@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Artifact_Drop, Artifact_Drop_Farm } from '../../src/state/artifact_drop';
 import { ArtifactBox } from './ArtifactBox';
+import { ArtifactDropAnalysis } from './ArtifactDropAnalysis';
 import { NewArtifact } from './NewArtifact';
 import { UpdateArtifactDrop } from './UpdateArtifactDrop';
 
@@ -13,7 +14,7 @@ interface Props {
 export const ArtifactDropFarm = (props: Props) => {
   const { artifact_drop_farm, update, remove } = props;
   const ref = useRef<HTMLDivElement>(null);
-  const [showNewArtifactForm, setShowNewArtifactForm] = useState(true);
+  const [showNewArtifactForm, setShowNewArtifactForm] = useState(false);
   const [showUpdatePopup, setShowUpdatePopup] = useState(false);
 
   useEffect(() => {
@@ -65,6 +66,8 @@ export const ArtifactDropFarm = (props: Props) => {
         />
       ))}
 
+      <ArtifactDropAnalysis artifacts={artifact_drop_farm} />
+
       {showNewArtifactForm && (
         <NewArtifact
           close={() => setShowNewArtifactForm(false)}
@@ -74,13 +77,6 @@ export const ArtifactDropFarm = (props: Props) => {
           }}
         />
       )}
-
-      {/* todo analysis on the this drop farm */}
-      {/* count of main stat */}
-      {/* count of each stat, atk, def, hp crit etc -- substats only */}
-      {/* count of good stat? */}
-      {/* count of trash? */}
-      {/* count of crits? count of good main stat? count of def, atk, hp etc? */}
     </div>
   );
 };

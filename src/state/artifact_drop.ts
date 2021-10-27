@@ -7,9 +7,9 @@ export interface Artifact_Drop_Sub_Stat {
 
 export interface Artifact_Drop {
   id: string;
-  artifact_rarity?: Artifact_Rarity;
-  artifact_type?: Artifact_Type,
-  main_stat?: Artifact_Main_Stat,
+  artifact_rarity: Artifact_Rarity;
+  artifact_type: Artifact_Type,
+  main_stat: Artifact_Main_Stat,
   sub_stats: Artifact_Drop_Sub_Stat[];
 }
 
