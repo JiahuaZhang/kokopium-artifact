@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Artifact_Drop, Artifact_Drop_Farm } from '../../src/state/artifact_drop';
+import { ArtifactDropAnalysisData } from '../../src/util/analysis/drop';
 import { ArtifactBox } from './ArtifactBox';
 import { ArtifactDropAnalysis } from './ArtifactDropAnalysis';
 import { NewArtifact } from './NewArtifact';
@@ -9,10 +10,11 @@ interface Props {
   artifact_drop_farm: Artifact_Drop_Farm;
   update(artifact_drop_farm: Artifact_Drop_Farm): void;
   remove(artifact_drop_farm: Artifact_Drop_Farm): void;
+  analysis_data: ArtifactDropAnalysisData[];
 }
 
 export const ArtifactDropFarm = (props: Props) => {
-  const { artifact_drop_farm, update, remove } = props;
+  const { artifact_drop_farm, update, remove, analysis_data } = props;
   const ref = useRef<HTMLDivElement>(null);
   const [showNewArtifactForm, setShowNewArtifactForm] = useState(false);
   const [showUpdatePopup, setShowUpdatePopup] = useState(false);
@@ -66,7 +68,7 @@ export const ArtifactDropFarm = (props: Props) => {
         />
       ))}
 
-      <ArtifactDropAnalysis artifacts={artifact_drop_farm} />
+      <ArtifactDropAnalysis analysis={analysis_data} />
 
       {showNewArtifactForm && (
         <NewArtifact

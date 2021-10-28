@@ -1,17 +1,27 @@
+import { Table } from 'antd';
 import { NextPage } from 'next';
 import { useState } from 'react';
 import { ArtifactDropFarm } from '../components/drop/ArtifactDropFarm';
 import { NewArtifactDrop } from '../components/drop/NewArtifactDrop';
 import { Artifact_Drop_Farm } from '../src/state/artifact_drop';
 import { DownloadAsJson } from '../components/common/DownloadAsJson';
+import {
+  AllArtifactDropColumns,
+  getAggregateArtifactDropAnalysis,
+  getArtifactDropAnalysisData,
+} from '../src/util/analysis/drop';
 
 const Drop: NextPage = () => {
   const [state, setState] = useState<Artifact_Drop_Farm[]>([]);
 
+  const analysisData = state.map((s) => getArtifactDropAnalysisData(s));
+  const aggregateData = getAggregateArtifactDropAnalysis(analysisData);
+
   return (
     <div>
-      {state.map((s) => (
+      {state.map((s, index) => (
         <ArtifactDropFarm
+          analysis_data={analysisData[index]}
           key={s.id}
           artifact_drop_farm={s}
           update={(drop) => setState((values) => values.map((v) => (v.id === drop.id ? drop : v)))}
@@ -24,7 +34,14 @@ const Drop: NextPage = () => {
         <DownloadAsJson filename='artifact-drop' data={state} />
       </div>
 
-      {/* analysis part for all drop farms */}
+      <Table
+        size='small'
+        pagination={false}
+        dataSource={aggregateData}
+        columns={AllArtifactDropColumns}
+      />
+
+      {/* todo: enable dev local mode, if there some initial at /public? directory, load the json automaically */}
     </div>
   );
 };
