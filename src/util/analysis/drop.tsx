@@ -20,6 +20,7 @@ const toRecordType = (value: string): ArtifactDropAnalysisData => ({
   4: 0,
   3: 0,
   total: 0,
+  percentage: 0,
 });
 
 export const ArtifactDropColumns = [
