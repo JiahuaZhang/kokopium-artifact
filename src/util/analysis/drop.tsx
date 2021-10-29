@@ -10,7 +10,8 @@ export interface ArtifactDropAnalysisData {
   4: number;
   3: number;
   total: number;
-  percentage?: number;
+  percentage5?: number;
+  allPercentage?: number;
 }
 
 const toRecordType = (value: string): ArtifactDropAnalysisData => ({
@@ -20,7 +21,8 @@ const toRecordType = (value: string): ArtifactDropAnalysisData => ({
   4: 0,
   3: 0,
   total: 0,
-  percentage: 0,
+  allPercentage: 0,
+  percentage5: 0,
 });
 
 export const ArtifactDropColumns = [
@@ -68,9 +70,19 @@ export const ArtifactDropColumns = [
 export const AllArtifactDropColumns = [
   ...ArtifactDropColumns,
   {
-    title: 'percentage',
-    dataIndex: 'percentage',
-    key: 'percentage',
+    title: (
+      <span>
+        <StarFilled className='text-yellow-400 fill-current' /> percentage
+      </span>
+    ),
+    dataIndex: 'percentage5',
+    key: 'percentage5',
+    render: (text: number) => (text * 100).toFixed(2) + '%',
+  },
+  {
+    title: 'all percentage',
+    dataIndex: 'allPercentage',
+    key: 'allPercentage',
     render: (text: number) => (text * 100).toFixed(2) + '%',
   },
 ];
@@ -157,28 +169,55 @@ export const getAggregateArtifactDropAnalysis = (data: ArtifactDropAnalysisData[
   );
   ALL_ARTIFACT_TYPE.forEach(
     (type) =>
-      (all_analysis_data[indexMapping[type]].percentage =
+      (all_analysis_data[indexMapping[type]].allPercentage =
         all_analysis_data[indexMapping[type]].total / total_artifacts)
+  );
+
+  const total_5_artifacts = ALL_ARTIFACT_TYPE.reduce(
+    (prev, cur) => prev + all_analysis_data[indexMapping[cur]][5],
+    0
+  );
+  ALL_ARTIFACT_TYPE.forEach(
+    (type) =>
+      (all_analysis_data[indexMapping[type]].percentage5 =
+        all_analysis_data[indexMapping[type]][5] / total_5_artifacts)
   );
 
   const counted_main_stat =
     all_analysis_data[indexMapping['good main stat']].total +
     all_analysis_data[indexMapping['bad main stat']].total;
-
-  all_analysis_data[indexMapping['good main stat']].percentage =
+  all_analysis_data[indexMapping['good main stat']].allPercentage =
     all_analysis_data[indexMapping['good main stat']].total / counted_main_stat;
-  all_analysis_data[indexMapping['bad main stat']].percentage =
+  all_analysis_data[indexMapping['bad main stat']].allPercentage =
     all_analysis_data[indexMapping['bad main stat']].total / counted_main_stat;
+
+  const counted_5_main_stat =
+    all_analysis_data[indexMapping['good main stat']][5] +
+    all_analysis_data[indexMapping['bad main stat']][5];
+  all_analysis_data[indexMapping['good main stat']].percentage5 =
+    all_analysis_data[indexMapping['good main stat']][5] / counted_5_main_stat;
+  all_analysis_data[indexMapping['bad main stat']].percentage5 =
+    all_analysis_data[indexMapping['bad main stat']][5] / counted_5_main_stat;
 
   const all_sub_stats = ALL_ARTIFACT_SUB_STAT.reduce(
     (prev, cur) => prev + all_analysis_data[indexMapping[cur]].total,
     0
   );
+  ALL_ARTIFACT_SUB_STAT.forEach(
+    (stat) =>
+      (all_analysis_data[indexMapping[stat]].allPercentage =
+        all_analysis_data[indexMapping[stat]].total / all_sub_stats)
+  );
+
+  const all_5_sub_stats = ALL_ARTIFACT_SUB_STAT.reduce(
+    (prev, cur) => prev + all_analysis_data[indexMapping[cur]][5],
+    0
+  );
 
   ALL_ARTIFACT_SUB_STAT.forEach(
     (stat) =>
-      (all_analysis_data[indexMapping[stat]].percentage =
-        all_analysis_data[indexMapping[stat]].total / all_sub_stats)
+      (all_analysis_data[indexMapping[stat]].percentage5 =
+        all_analysis_data[indexMapping[stat]][5] / all_5_sub_stats)
   );
 
   return all_analysis_data.filter((data) => data.total !== 0);
