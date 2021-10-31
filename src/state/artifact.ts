@@ -206,7 +206,7 @@ export const ALL_ARTIFACT_SUB_STAT_TIER_INFO: { [key in Artifact_Sub_Stat]: { [k
 export interface Artifact_Stat_Enhance {
   name: Artifact_Stat,
   value?: number;
-  time?: number;
+  times?: number;
 }
 
 export interface Artifact_Enhance {
@@ -216,6 +216,7 @@ export interface Artifact_Enhance {
   main_stat?: Artifact_Main_Stat,
   sub_stats?: Artifact_Stat_Enhance[];
   enhance: Artifact_Stat_Enhance[];
+  times?: number;
 }
 
 

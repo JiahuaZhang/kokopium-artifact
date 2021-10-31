@@ -1,5 +1,6 @@
 import { DownloadOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
+import moment from 'moment';
 import React from 'react';
 
 interface Props {
@@ -14,7 +15,7 @@ export const DownloadAsJson = (props: Props) => {
     <Button
       type='primary'
       href={`data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(data))}`}
-      download={`${new Date().toDateString()}-${filename}.json`}>
+      download={`${moment().format('yyyy-MM-DD ddd')} ${filename}.json`}>
       <DownloadOutlined />
     </Button>
   );
