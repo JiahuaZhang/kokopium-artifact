@@ -21,7 +21,7 @@ const Drop: NextPage = () => {
     <div>
       {state.map((s, index) => (
         <ArtifactDropFarm
-          analysis_data={analysisData[index]}
+          analysis_data={analysisData[index].filter((d) => d.total > 0)}
           key={s.id}
           artifact_drop_farm={s}
           update={(drop) => setState((values) => values.map((v) => (v.id === drop.id ? drop : v)))}
@@ -37,7 +37,7 @@ const Drop: NextPage = () => {
       <Table
         size='small'
         pagination={false}
-        dataSource={aggregateData}
+        dataSource={aggregateData.filter((d) => d.total > 0)}
         columns={AllArtifactDropColumns}
       />
 

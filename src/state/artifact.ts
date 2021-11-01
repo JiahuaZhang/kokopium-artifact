@@ -24,6 +24,14 @@ export const ALL_ARTIFACT_MAIN_STAT: Artifact_Main_Stat[] = ['hp', 'atk', 'hp%',
 
 export type Artifact_Sub_Stat = 'hp' | 'hp%' | 'atk' | 'atk%' | 'def' | 'def%' | 'elemental mastery' | 'energy recharge' | 'crit rate%' | 'crit dmg%';
 
+export const ALL_ARTIFACT_TYPE_MAIN_STATS: { [key in Artifact_Type]: Artifact_Main_Stat[] } = {
+  'Flower of Life': ['hp'],
+  'Plume of Death': ['atk'],
+  'Sands of Eon': ALL_SANDS_ARTIFACT_MAIN_STAT,
+  'Goblet of Eonothem': ALL_GOBLET_ARTIFACT_MAIN_STAT,
+  'Circlet of Logos': ALL_CIRCLET_ARTIFACT_MAIN_STAT,
+};
+
 export const ALL_ARTIFACT_SUB_STAT: Artifact_Sub_Stat[] = ['hp', 'hp%', 'def', 'def%', 'atk', 'atk%', 'elemental mastery', 'energy recharge', 'crit rate%', 'crit dmg%'];
 
 export type Artifact_Stat = Artifact_Main_Stat | Artifact_Sub_Stat;
@@ -218,7 +226,6 @@ export interface Artifact_Enhance {
   enhance: Artifact_Stat_Enhance[];
   times?: number;
 }
-
 
 export const ARTIFACT_IMAGES: { type: Artifact_Type, url: string; }[] = [
   {

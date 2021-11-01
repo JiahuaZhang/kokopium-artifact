@@ -125,7 +125,7 @@ export const getArtifactDropAnalysisData = (artifacts: Artifact_Drop_Farm) => {
     data.total = data[3] + data[4] + data[5];
   });
 
-  return analysis_data.filter((data) => data.total !== 0);
+  return analysis_data;
 };
 
 export const getAggregateArtifactDropAnalysis = (data: ArtifactDropAnalysisData[][]) => {
@@ -220,5 +220,5 @@ export const getAggregateArtifactDropAnalysis = (data: ArtifactDropAnalysisData[
         all_analysis_data[indexMapping[stat]][5] / all_5_sub_stats)
   );
 
-  return all_analysis_data.filter((data) => data.total !== 0);
+  return all_analysis_data;
 };
