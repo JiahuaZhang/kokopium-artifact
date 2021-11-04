@@ -6,11 +6,8 @@ import { v4 } from 'uuid';
 import {
   ALL_ARTIFACT_SUB_STAT,
   ALL_ARTIFACT_SUB_STAT_TIER_INFO,
-  ALL_CIRCLET_ARTIFACT_MAIN_STAT,
-  ALL_GOBLET_ARTIFACT_MAIN_STAT,
-  ALL_SANDS_ARTIFACT_MAIN_STAT,
+  ALL_ARTIFACT_TYPE_MAIN_STATS,
   ARTIFACT_IMAGES,
-  Artifact_Main_Stat,
   Artifact_Rarity,
   Artifact_Sub_Stat,
   Artifact_Type,
@@ -29,14 +26,6 @@ interface SelectOption {
 
 const mapper = (value: string | number) => ({ value, label: value });
 const sub_stat_options = ALL_ARTIFACT_SUB_STAT.map(mapper);
-
-const allMainStatOPtions: { [key in Artifact_Type]: Artifact_Main_Stat[] } = {
-  'Flower of Life': ['hp'],
-  'Plume of Death': ['atk'],
-  'Sands of Eon': ALL_SANDS_ARTIFACT_MAIN_STAT,
-  'Goblet of Eonothem': ALL_GOBLET_ARTIFACT_MAIN_STAT,
-  'Circlet of Logos': ALL_CIRCLET_ARTIFACT_MAIN_STAT,
-};
 
 const getUpdateStatOptions = (form: FormInstance<any>, index: number) => {
   const main_stat = form.getFieldValue('main_stat');
@@ -120,7 +109,7 @@ export const NewArtifact = (props: Props) => {
           <Radio.Group
             onChange={(e) => {
               const { value } = e.target;
-              const possibleMainOptions = allMainStatOPtions[value as Artifact_Type];
+              const possibleMainOptions = ALL_ARTIFACT_TYPE_MAIN_STATS[value as Artifact_Type];
               setMainStatOptions(possibleMainOptions.map(mapper));
 
               if (possibleMainOptions.length === 1) {
