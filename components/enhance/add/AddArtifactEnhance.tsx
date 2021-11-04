@@ -346,7 +346,7 @@ export const AddArtifactEnhance = (props: Props) => {
                   type='primary'
                   onClick={() => {
                     form.submit();
-                    reEnhance();
+                    setTimeout(reEnhance);
                   }}>
                   Submit & Reenhance
                 </Button>
