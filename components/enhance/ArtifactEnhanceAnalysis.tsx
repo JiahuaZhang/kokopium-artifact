@@ -1,7 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import { Table, Select } from 'antd';
-import Column from 'rc-table/lib/sugar/Column';
-import ColumnGroup from 'rc-table/lib/sugar/ColumnGroup';
 import { useEffect, useState } from 'react';
 import {
   ALL_ARTIFACT_SUB_STAT,
@@ -245,20 +243,24 @@ export const ArtifactEnhanceAnalysis = (props: Props) => {
           </Select.Option>
         ))}
       </Select>
-      <Table dataSource={statisticsToTableData(allStatistics[index])} pagination={false}>
-        <Column title='attribute' dataIndex='attribute' key='attribute' />
+      <Table
+        dataSource={statisticsToTableData(allStatistics[index])}
+        pagination={false}
+        size='small'>
+        <Table.Column title='attribute' dataIndex='attribute' key='attribute' />
         {[4, 6, 7, 8, 9, 10].map((value) => (
-          <ColumnGroup key={value} title={`1/${value}`}>
-            <Column title='hit' dataIndex={[value, 'on']} key={`${value}.on`} />
-            <Column title='miss' dataIndex={[value, 'off']} key={`${value}.off`} />
-          </ColumnGroup>
+          <Table.ColumnGroup key={value} title={`1/${value}`}>
+            <Table.Column title='hit' dataIndex={[value, 'on']} key={`${value}.on`} />
+            <Table.Column title='miss' dataIndex={[value, 'off']} key={`${value}.off`} />
+          </Table.ColumnGroup>
         ))}
         {['count', 'expected', 'diff'].map((value) => (
-          <Column
+          <Table.Column
             title={value}
             dataIndex={value}
             key={value}
             render={(val: number) => val.toFixed(2)}
+            sorter={(a: any, b: any) => a[value] - b[value]}
           />
         ))}
       </Table>
