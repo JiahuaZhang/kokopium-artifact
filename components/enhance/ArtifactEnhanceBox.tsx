@@ -15,6 +15,7 @@ interface Props {
   artifact: Artifact_Enhance;
   update(artifact: Artifact_Enhance): void;
   remove(artifact: Artifact_Enhance): void;
+  index: number;
 }
 
 const colors = ['', 'gray', 'green', 'blue', 'purple', 'orange'];
@@ -26,13 +27,15 @@ const getUnselectedStats = (artifact: Artifact_Enhance) => {
 
   const existed_stats = artifact.sub_stats?.map((stat) => stat.name).filter(Boolean) || [];
   const existed_attributes = artifact.enhance.map((enhance) => enhance.name);
+  const { main_stat } = artifact;
   return ALL_ARTIFACT_SUB_STAT.filter(
-    (stat) => !existed_stats.includes(stat) && !existed_attributes.includes(stat)
+    (stat) =>
+      !existed_stats.includes(stat) && !existed_attributes.includes(stat) && stat !== main_stat
   );
 };
 
 export const ArtifactEnhanceBox = (props: Props) => {
-  const { artifact, update, remove } = props;
+  const { artifact, update, remove, index } = props;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const unSelectedStats = getUnselectedStats(artifact);
 
@@ -51,7 +54,8 @@ export const ArtifactEnhanceBox = (props: Props) => {
           preview={false}
         />
       </div>
-      <div className='justify-self-center	'>
+      <div className='inline-grid grid-flow-col justify-around'>
+        <span>#{index + 1}</span>
         <ArtifactMainStatTag artifact={artifact} />
       </div>
       <p>

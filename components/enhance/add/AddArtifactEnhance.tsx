@@ -155,6 +155,24 @@ export const AddArtifactEnhance = (props: Props) => {
           value.id = v4();
           value.sub_stats = value.sub_stats?.filter((stat) => stat.name) || [];
           value.enhance = value.enhance.filter((stat) => stat.name) || [];
+          value.enhance = value.enhance.map((enhance) => {
+            if (!value.artifact_rarity || !enhance.value) return enhance;
+
+            const range =
+              ALL_ARTIFACT_SUB_STAT_TIER_INFO[enhance.name as Artifact_Sub_Stat][
+                value.artifact_rarity
+              ];
+            if (enhance.value >= range[0] && enhance.value <= range[range.length - 1]) {
+              return enhance;
+            }
+
+            const old_stat = value.sub_stats?.find((stat) => stat.name === enhance.name);
+            if (!old_stat || !old_stat.value) return enhance;
+
+            enhance.value = enhance.value - old_stat.value;
+
+            return enhance;
+          });
           add(value);
         }}>
         <Row gutter={[16, 0]} className='w-full'>

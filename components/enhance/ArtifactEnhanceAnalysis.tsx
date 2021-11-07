@@ -1,9 +1,32 @@
 /** @jsxImportSource @emotion/react */
-import { Table } from 'antd';
-import { Artifact_Enhance } from '../../src/state/artifact';
+import { Table, Select } from 'antd';
+import Column from 'rc-table/lib/sugar/Column';
+import ColumnGroup from 'rc-table/lib/sugar/ColumnGroup';
+import { useState } from 'react';
+import {
+  ALL_ARTIFACT_SUB_STAT,
+  Artifact_Enhance,
+  Artifact_Sub_Stat,
+} from '../../src/state/artifact';
 
 interface Props {
   artifact_enhance: Artifact_Enhance[];
+}
+
+interface StatStatus {
+  on: number;
+  off: number;
+}
+interface ExpectedStatistics {
+  4: StatStatus;
+  6: StatStatus;
+  7: StatStatus;
+  8: StatStatus;
+  9: StatStatus;
+  10: StatStatus;
+  count: number;
+  expected: number;
+  diff: number;
 }
 
 const columns = [
@@ -104,13 +127,136 @@ const getDistance = (artifact_enhance: Artifact_Enhance[]) => {
   return crit_distances;
 };
 
+const getStatistics = (artifact_enhance: Artifact_Enhance[]) => {
+  const toAllExpectedStatistics = () => {
+    const result: { [key in Artifact_Sub_Stat]: ExpectedStatistics } = {} as any;
+
+    ALL_ARTIFACT_SUB_STAT.forEach((stat) => {
+      result[stat] = {
+        4: { on: 0, off: 0 },
+        6: { on: 0, off: 0 },
+        7: { on: 0, off: 0 },
+        8: { on: 0, off: 0 },
+        9: { on: 0, off: 0 },
+        10: { on: 0, off: 0 },
+        count: 0,
+        expected: 0.0,
+        diff: 0.0,
+      } as ExpectedStatistics;
+    });
+
+    return result;
+  };
+
+  const sequenceExpectedStatistics = artifact_enhance.map((enhance) => {
+    const newExpectedStatistics = toAllExpectedStatistics();
+
+    const existed_sub_stats = enhance.sub_stats?.map((stat) => stat.name).filter(Boolean) || [];
+    const { main_stat } = enhance;
+    const candidate_stats = ALL_ARTIFACT_SUB_STAT.filter(
+      (stat) => !existed_sub_stats.includes(stat) && main_stat !== stat
+    );
+
+    enhance.enhance.forEach((attribute) => {
+      if (attribute.name) {
+        if (existed_sub_stats.length === 4) {
+          existed_sub_stats.forEach((stat) => {
+            newExpectedStatistics[stat as Artifact_Sub_Stat].expected += 1 / 4;
+
+            if (stat === attribute.name) {
+              newExpectedStatistics[attribute.name as Artifact_Sub_Stat][4].on += 1;
+              newExpectedStatistics[attribute.name as Artifact_Sub_Stat].count += 1;
+            } else {
+              newExpectedStatistics[attribute.name as Artifact_Sub_Stat][4].off += 1;
+            }
+            newExpectedStatistics[attribute.name as Artifact_Sub_Stat].diff =
+              newExpectedStatistics[attribute.name as Artifact_Sub_Stat].count -
+              newExpectedStatistics[attribute.name as Artifact_Sub_Stat].expected;
+          });
+        } else {
+          const index = candidate_stats.length as 4 | 6 | 7 | 8 | 9 | 10;
+          candidate_stats.forEach((stat) => {
+            newExpectedStatistics[stat].expected += 1 / index;
+            if (stat === attribute.name) {
+              newExpectedStatistics[stat][index].on += 1;
+              newExpectedStatistics[stat].count += 1;
+            } else {
+              newExpectedStatistics[stat][index].off += 1;
+            }
+            newExpectedStatistics[stat].diff =
+              newExpectedStatistics[stat].count - newExpectedStatistics[stat].expected;
+          });
+        }
+      }
+    });
+
+    return newExpectedStatistics;
+  });
+
+  sequenceExpectedStatistics.forEach((statistics, index, allStatistics) => {
+    if (index === 0) return;
+
+    ALL_ARTIFACT_SUB_STAT.forEach((stat) => {
+      [4, 6, 7, 8, 9, 10].forEach((key) => {
+        statistics[stat][key as 4 | 6 | 7 | 8 | 9 | 10].on +=
+          allStatistics[index - 1][stat][key as 4 | 6 | 7 | 8 | 9 | 10].on;
+        statistics[stat][key as 4 | 6 | 7 | 8 | 9 | 10].off +=
+          allStatistics[index - 1][stat][key as 4 | 6 | 7 | 8 | 9 | 10].off;
+      });
+
+      statistics[stat].count += allStatistics[index - 1][stat].count;
+      statistics[stat].expected += allStatistics[index - 1][stat].expected;
+      statistics[stat].diff = statistics[stat].count - statistics[stat].expected;
+    });
+  });
+
+  return sequenceExpectedStatistics;
+};
+
+const statisticsToTableData = (statistics: { [key: string]: ExpectedStatistics }) => {
+  return ALL_ARTIFACT_SUB_STAT.map((stat) => {
+    return { ...statistics[stat], attribute: stat, key: stat };
+  });
+};
+
 export const ArtifactEnhanceAnalysis = (props: Props) => {
   const { artifact_enhance } = props;
-
   const distances = getDistance(artifact_enhance);
+  const allStatistics = getStatistics(artifact_enhance);
+  const [index, setIndex] = useState(artifact_enhance.length - 1);
 
   return (
     <div>
+      <Select
+        className='w-32'
+        showSearch
+        placeholder='Selecte enhance state'
+        onChange={(value: number) => {
+          setIndex(value - 1);
+        }}>
+        {artifact_enhance.map((_, index) => (
+          <Select.Option value={index + 1} key={index + 1}>
+            {index + 1}
+          </Select.Option>
+        ))}
+      </Select>
+      <Table dataSource={statisticsToTableData(allStatistics[index])} pagination={false}>
+        <Column title='attribute' dataIndex='attribute' key='attribute' />
+        {[4, 6, 7, 8, 9, 10].map((value) => (
+          <ColumnGroup key={value} title={`1/${value}`}>
+            <Column title='hit' dataIndex={[value, 'on']} key={`${value}.on`} />
+            <Column title='miss' dataIndex={[value, 'off']} key={`${value}.off`} />
+          </ColumnGroup>
+        ))}
+        {['count', 'expected', 'diff'].map((value) => (
+          <Column
+            title={value}
+            dataIndex={value}
+            key={value}
+            render={(val: number) => val.toFixed(2)}
+          />
+        ))}
+      </Table>
       <Table
         size='small'
         dataSource={getStats(artifact_enhance)}
@@ -125,6 +271,8 @@ export const ArtifactEnhanceAnalysis = (props: Props) => {
           },
         }}
       />
+      {/* todo? smart toggle base on selection attribute, or even multiple */}
+      {/* layout might be #1-v #2-x #3-x #4-x #5-v ... */}
       <ul className='m-2 text-base'>
         {distances.map((distance, index) => (
           <li key={index}> {distance.join(', ')} </li>

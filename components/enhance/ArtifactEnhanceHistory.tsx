@@ -12,8 +12,9 @@ export const ArtifactEnhanceHistory = (props: Props) => {
 
   return (
     <>
-      {state.map((s) => (
+      {state.map((s, index) => (
         <ArtifactEnhanceBox
+          index={index}
           key={s.id}
           artifact={s}
           remove={(artifact) => setState((prev) => prev.filter((a) => a.id !== artifact.id))}
