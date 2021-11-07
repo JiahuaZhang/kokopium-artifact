@@ -2,7 +2,7 @@
 import { Table, Select } from 'antd';
 import Column from 'rc-table/lib/sugar/Column';
 import ColumnGroup from 'rc-table/lib/sugar/ColumnGroup';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   ALL_ARTIFACT_SUB_STAT,
   Artifact_Enhance,
@@ -214,6 +214,8 @@ const getStatistics = (artifact_enhance: Artifact_Enhance[]) => {
 };
 
 const statisticsToTableData = (statistics: { [key: string]: ExpectedStatistics }) => {
+  if (!statistics) return [];
+
   return ALL_ARTIFACT_SUB_STAT.map((stat) => {
     return { ...statistics[stat], attribute: stat, key: stat };
   });
@@ -225,6 +227,8 @@ export const ArtifactEnhanceAnalysis = (props: Props) => {
   const allStatistics = getStatistics(artifact_enhance);
   const [index, setIndex] = useState(artifact_enhance.length - 1);
 
+  useEffect(() => setIndex(artifact_enhance.length - 1), [artifact_enhance]);
+
   return (
     <div>
       <Select
@@ -233,7 +237,8 @@ export const ArtifactEnhanceAnalysis = (props: Props) => {
         placeholder='Selecte enhance state'
         onChange={(value: number) => {
           setIndex(value - 1);
-        }}>
+        }}
+        value={index + 1}>
         {artifact_enhance.map((_, index) => (
           <Select.Option value={index + 1} key={index + 1}>
             {index + 1}
