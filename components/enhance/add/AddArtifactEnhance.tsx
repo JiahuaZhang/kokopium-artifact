@@ -134,7 +134,7 @@ export const AddArtifactEnhance = (props: Props) => {
         if (index === -1) {
           sub_stats.push({ name: e.name, value: e.value });
         } else {
-          sub_stats![index].value = (e.value || 0) + (sub_stats![index].value || 0);
+          sub_stats![index].value = e.value || sub_stats![index].value || 0;
         }
       }
     });
