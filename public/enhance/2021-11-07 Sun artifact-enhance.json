@@ -1,0 +1,1301 @@
+[
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Goblet of Eonothem",
+    "main_stat": "elemental dmg bonus%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "def",
+        "value": 2
+      }
+    ],
+    "id": "20dd18de-09e1-497f-9e52-81c0a797b4e7"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Goblet of Eonothem",
+    "main_stat": "atk%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "energy recharge",
+        "value": 1.6
+      }
+    ],
+    "id": "455ea797-4146-4707-b262-05332da6e5f8"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Plume of Death",
+    "main_stat": "atk",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "energy recharge",
+        "value": 1.6
+      }
+    ],
+    "id": "e83e73c9-7104-4c98-893d-3eb0f145a659"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Plume of Death",
+    "main_stat": "atk",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "def%",
+        "value": 1.8
+      }
+    ],
+    "id": "61451478-70d4-411e-83a9-cd605bc783ac"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Circlet of Logos",
+    "main_stat": "def%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "atk%",
+        "value": 1.5
+      }
+    ],
+    "id": "0d57b1ae-e9c8-4a21-a860-07771c4bb579"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Circlet of Logos",
+    "main_stat": "atk%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "crit dmg%",
+        "value": 1.9
+      }
+    ],
+    "id": "206b59d6-23c3-4951-9711-b996637e5861"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Circlet of Logos",
+    "main_stat": "def%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "atk%",
+        "value": 1.2
+      }
+    ],
+    "id": "c86a54ef-43f0-4b74-86b7-14c49a0650cd"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Circlet of Logos",
+    "main_stat": "hp%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "crit dmg%",
+        "value": 1.9
+      }
+    ],
+    "id": "48511afe-9337-450b-889c-fd824b196114"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Flower of Life",
+    "main_stat": "hp",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "def",
+        "value": 2
+      }
+    ],
+    "id": "4be55150-375d-4d50-b820-dbf20f12ddc5"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "elemental mastery",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "atk",
+        "value": 2
+      }
+    ],
+    "id": "d6ba4ae7-cd3d-478b-95ed-de5f602cb73b"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "atk%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "def%",
+        "value": 1.8
+      }
+    ],
+    "id": "d8c487b2-e46c-4675-affd-110a38bced38"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Goblet of Eonothem",
+    "main_stat": "def%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "hp",
+        "value": 24
+      }
+    ],
+    "id": "5b96238d-b1e1-4739-a358-b3ca0031e1dd"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Goblet of Eonothem",
+    "main_stat": "hp%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "def",
+        "value": 2
+      }
+    ],
+    "id": "2ac52dff-86cd-4033-93b4-43c48e81bce8"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Plume of Death",
+    "main_stat": "atk",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "def",
+        "value": 2
+      }
+    ],
+    "id": "c7479026-0e35-458c-87b7-68f1e56e7139"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Plume of Death",
+    "main_stat": "atk",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "crit rate%",
+        "value": 1
+      }
+    ],
+    "id": "3f87d9ec-b5b1-436c-ac7f-40d3ea4864e0"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Circlet of Logos",
+    "main_stat": "hp%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "crit dmg%",
+        "value": 1.6
+      }
+    ],
+    "id": "657fe182-57c9-4c06-aea6-03889b05063a"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Circlet of Logos",
+    "main_stat": "hp%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "hp",
+        "value": 24
+      }
+    ],
+    "id": "0611360f-7a6f-4ca9-8163-681d96a2c510"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Flower of Life",
+    "main_stat": "hp",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "hp%",
+        "value": 1.5
+      }
+    ],
+    "id": "ec813330-1c40-4f4e-85bc-edf69bc353c6"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Flower of Life",
+    "main_stat": "hp",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "def",
+        "value": 2
+      }
+    ],
+    "id": "d77a6740-1362-4fb2-baba-76a6d2693fea"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Circlet of Logos",
+    "main_stat": "hp%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "hp",
+        "value": 24
+      }
+    ],
+    "id": "bf8851c0-a8ef-4383-998d-e46c92330c3b"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "def%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "energy recharge",
+        "value": 1.3
+      }
+    ],
+    "id": "7ee6fb67-60e2-4d82-afb4-5c4375fae3f8"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Flower of Life",
+    "main_stat": "hp",
+    "sub_stats": [
+      {
+        "name": "def",
+        "value": 19
+      },
+      {
+        "name": "crit dmg%",
+        "value": 7.8
+      },
+      {
+        "name": "crit rate%",
+        "value": 3.1
+      }
+    ],
+    "enhance": [
+      {
+        "name": "def%",
+        "value": 7.3
+      }
+    ],
+    "id": "8e37dc14-03f6-4ab5-a591-60bc58e04a5c"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Circlet of Logos",
+    "main_stat": "healing bonus%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "atk",
+        "value": 2
+      }
+    ],
+    "id": "adf5bce8-59a3-464e-a6f2-91f0f0b1ce88"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "atk%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "energy recharge",
+        "value": 1.3
+      }
+    ],
+    "id": "9848898a-2e9f-40ae-9715-1acd54aaabbb"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Goblet of Eonothem",
+    "main_stat": "elemental dmg bonus%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "hp",
+        "value": 24
+      }
+    ],
+    "id": "7d30ed9c-543f-4391-8545-5c54dd356463"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "elemental mastery",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "atk%",
+        "value": 1.2
+      }
+    ],
+    "id": "25a8c191-2c41-48e3-a909-48e97882bd83"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Goblet of Eonothem",
+    "main_stat": "atk%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "crit rate%",
+        "value": 1
+      }
+    ],
+    "id": "ae17d403-fc7f-4442-bbdc-a514456a29ef"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Flower of Life",
+    "main_stat": "hp",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "def%",
+        "value": 1.8
+      }
+    ],
+    "id": "663092f0-7ee7-4aa6-9972-81138635f53c"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Plume of Death",
+    "main_stat": "atk",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "atk%",
+        "value": 1.2
+      }
+    ],
+    "id": "c28b9f69-64c3-4439-a0c6-70af3d4472a1"
+  },
+  {
+    "artifact_rarity": 1,
+    "artifact_type": "Circlet of Logos",
+    "main_stat": "healing bonus%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "atk",
+        "value": 2
+      }
+    ],
+    "id": "350e6736-a978-4485-a17b-dd3a39ef6126"
+  },
+  {
+    "artifact_rarity": 2,
+    "artifact_type": "Goblet of Eonothem",
+    "main_stat": "hp%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "elemental mastery",
+        "value": 8
+      }
+    ],
+    "id": "4e394cfc-b2c1-4cac-9176-a85ccf5eb617"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "def%",
+    "sub_stats": [
+      {
+        "name": "crit dmg%",
+        "value": 7
+      },
+      {
+        "name": "energy recharge",
+        "value": 5.2
+      },
+      {
+        "name": "crit rate%",
+        "value": 2.7
+      }
+    ],
+    "enhance": [
+      {
+        "name": "def",
+        "value": 16
+      }
+    ],
+    "id": "a2bf5830-ce45-415c-97f4-ec18563ab6fd"
+  },
+  {
+    "artifact_rarity": 2,
+    "artifact_type": "Plume of Death",
+    "main_stat": "atk",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "def%",
+        "value": 2.5
+      }
+    ],
+    "id": "534ea47b-2390-471a-98ea-f8fd20344f69"
+  },
+  {
+    "artifact_rarity": 2,
+    "artifact_type": "Circlet of Logos",
+    "main_stat": "crit rate%",
+    "sub_stats": [
+      {
+        "name": "hp",
+        "value": 72
+      }
+    ],
+    "enhance": [
+      {
+        "name": "elemental mastery",
+        "value": 8
+      }
+    ],
+    "id": "9aa0bef0-80c7-469e-a952-23c1372729bb"
+  },
+  {
+    "artifact_rarity": 2,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "def%",
+    "sub_stats": [
+      {
+        "name": "atk",
+        "value": 5
+      }
+    ],
+    "enhance": [
+      {
+        "name": "energy recharge",
+        "value": 1.8
+      }
+    ],
+    "id": "170c066d-25b8-46a7-9b58-19438ef54c86"
+  },
+  {
+    "artifact_rarity": 2,
+    "artifact_type": "Plume of Death",
+    "main_stat": "atk",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "def",
+        "value": 6
+      }
+    ],
+    "id": "55ee958c-aab7-4055-a7a9-d0401156037b"
+  },
+  {
+    "artifact_rarity": 2,
+    "artifact_type": "Circlet of Logos",
+    "main_stat": "healing bonus%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "crit dmg%",
+        "value": 2.2
+      }
+    ],
+    "id": "b45dc8b2-5380-4808-a811-808097537350"
+  },
+  {
+    "artifact_rarity": 2,
+    "artifact_type": "Circlet of Logos",
+    "main_stat": "healing bonus%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "hp",
+        "value": 50
+      }
+    ],
+    "id": "fc90fee5-509a-45b3-8897-d0869c7328b7"
+  },
+  {
+    "artifact_rarity": 2,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "atk%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "hp",
+        "value": 72
+      }
+    ],
+    "id": "d9dd5b7c-a375-448f-96a3-e3765ecedfb8"
+  },
+  {
+    "artifact_rarity": 2,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "def%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "hp",
+        "value": 50
+      }
+    ],
+    "id": "bc5b235a-a3ac-4c78-bb8b-fb1a4460d237"
+  },
+  {
+    "artifact_rarity": 2,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "elemental mastery",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "crit rate%",
+        "value": 1.3
+      }
+    ],
+    "id": "6423463d-2033-4648-8423-0b4b98ee7668"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Flower of Life",
+    "main_stat": "hp",
+    "sub_stats": [
+      {
+        "name": "hp%",
+        "value": 9.9
+      },
+      {
+        "name": "atk",
+        "value": "19"
+      },
+      {
+        "name": "crit dmg%",
+        "value": "7.8"
+      },
+      {
+        "name": "crit rate%",
+        "value": "3.5"
+      }
+    ],
+    "enhance": [
+      {
+        "name": "atk",
+        "value": 18
+      }
+    ],
+    "id": "f78693c8-6613-43b1-903d-cb512a1c6af2"
+  },
+  {
+    "artifact_rarity": 2,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "hp%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "hp",
+        "value": 72
+      }
+    ],
+    "id": "12b2ce1f-5dab-42c9-b671-ed5db93cf303"
+  },
+  {
+    "artifact_rarity": 2,
+    "artifact_type": "Goblet of Eonothem",
+    "main_stat": "elemental dmg bonus%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "def",
+        "value": 5
+      }
+    ],
+    "id": "bd854d6c-e77c-4533-acc3-9aff9b38d656"
+  },
+  {
+    "artifact_rarity": 2,
+    "artifact_type": "Circlet of Logos",
+    "main_stat": "crit rate%",
+    "sub_stats": [],
+    "enhance": [
+      {
+        "name": "hp%",
+        "value": 1.6
+      }
+    ],
+    "id": "d8c86a70-4805-41b7-9fbd-3c13c9295bca"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Flower of Life",
+    "main_stat": "hp",
+    "sub_stats": [
+      {
+        "name": "hp%",
+        "value": "9.9"
+      },
+      {
+        "name": "atk",
+        "value": "37"
+      },
+      {
+        "name": "crit dmg%",
+        "value": "7.8"
+      },
+      {
+        "name": "crit rate%",
+        "value": "3.5"
+      }
+    ],
+    "enhance": [
+      {
+        "name": "atk",
+        "value": 14
+      }
+    ],
+    "id": "e89513bc-cd37-483c-92e6-5c4dc9ec200c"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Flower of Life",
+    "main_stat": "hp",
+    "sub_stats": [
+      {
+        "name": "hp%",
+        "value": "9.9"
+      },
+      {
+        "name": "atk",
+        "value": "51"
+      },
+      {
+        "name": "crit dmg%",
+        "value": "7.8"
+      },
+      {
+        "name": "crit rate%",
+        "value": "3.5"
+      }
+    ],
+    "enhance": [
+      {
+        "name": "hp%",
+        "value": 5.799999999999999
+      }
+    ],
+    "id": "4bdb69a7-3d07-4375-b66e-ff0628e71365"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "atk%",
+    "sub_stats": [
+      {
+        "name": "crit rate%",
+        "value": 2.7
+      },
+      {
+        "name": "def%",
+        "value": 7.3
+      },
+      {
+        "name": "crit dmg%",
+        "value": 7.8
+      }
+    ],
+    "enhance": [
+      {
+        "name": "elemental mastery",
+        "value": 19
+      }
+    ],
+    "id": "1a00802e-4a6e-4af2-b418-09b1fa94b73b"
+  },
+  {
+    "id": "08772210-4f23-45d4-abf3-4ec1b85541e4",
+    "artifact_rarity": 5,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "atk%",
+    "sub_stats": [
+      {
+        "name": "crit rate%",
+        "value": 2.7
+      },
+      {
+        "name": "def%",
+        "value": 7.3
+      },
+      {
+        "name": "crit dmg%",
+        "value": 7.8
+      },
+      {
+        "name": "elemental mastery",
+        "value": "19"
+      }
+    ],
+    "enhance": [
+      {
+        "name": "elemental mastery",
+        "value": 18
+      }
+    ]
+  },
+  {
+    "id": "c8ca2946-10e9-44ea-b0ee-7d6457621303",
+    "artifact_rarity": 5,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "atk%",
+    "sub_stats": [
+      {
+        "name": "crit rate%",
+        "value": 2.7
+      },
+      {
+        "name": "def%",
+        "value": 7.3
+      },
+      {
+        "name": "crit dmg%",
+        "value": 7.8
+      },
+      {
+        "name": "elemental mastery",
+        "value": "37"
+      }
+    ],
+    "enhance": [
+      {
+        "name": "elemental mastery",
+        "value": "23"
+      }
+    ]
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "atk%",
+    "sub_stats": [
+      {
+        "name": "crit rate%",
+        "value": 2.7
+      },
+      {
+        "name": "def%",
+        "value": 7.3
+      },
+      {
+        "name": "crit dmg%",
+        "value": 7.8
+      },
+      {
+        "name": "elemental mastery",
+        "value": "37"
+      }
+    ],
+    "enhance": [
+      {
+        "name": "def%",
+        "value": 5.1000000000000005
+      }
+    ],
+    "id": "fb8f7313-a104-4cf8-bd4c-b8327f42aea6"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Goblet of Eonothem",
+    "main_stat": "elemental dmg bonus%",
+    "sub_stats": [
+      {
+        "name": "atk",
+        "value": 16
+      },
+      {
+        "name": "crit rate%",
+        "value": 3.5
+      },
+      {
+        "name": "def%",
+        "value": 7.3
+      }
+    ],
+    "enhance": [
+      {
+        "name": "hp%",
+        "value": 5.3
+      }
+    ],
+    "id": "b7b086d5-ebdf-491e-8f9d-7051035aa98d"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Goblet of Eonothem",
+    "main_stat": "elemental dmg bonus%",
+    "sub_stats": [
+      {
+        "name": "atk",
+        "value": 14
+      },
+      {
+        "name": "atk%",
+        "value": 4.1
+      },
+      {
+        "name": "crit dmg%",
+        "value": 7
+      }
+    ],
+    "enhance": [
+      {
+        "name": "hp%",
+        "value": 4.7
+      }
+    ],
+    "id": "4b758a95-d5b2-4f2b-89a5-485c36330f2d"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "hp%",
+    "sub_stats": [
+      {
+        "name": "hp",
+        "value": 239
+      },
+      {
+        "name": "elemental mastery",
+        "value": 19
+      },
+      {
+        "name": "def",
+        "value": 16
+      },
+      {
+        "name": "def%",
+        "value": 5.8
+      }
+    ],
+    "enhance": [
+      {
+        "name": "hp",
+        "value": 209
+      }
+    ],
+    "id": "6f74c51d-1bb2-42b6-8337-c57d1cff4362"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "hp%",
+    "sub_stats": [
+      {
+        "name": "hp",
+        "value": "448239"
+      },
+      {
+        "name": "elemental mastery",
+        "value": 19
+      },
+      {
+        "name": "def",
+        "value": 16
+      },
+      {
+        "name": "def%",
+        "value": 5.8
+      }
+    ],
+    "enhance": [
+      {
+        "name": "def",
+        "value": 21
+      }
+    ],
+    "id": "71aed44c-8953-4638-a299-cfbedf7c3343"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Goblet of Eonothem",
+    "main_stat": "def%",
+    "sub_stats": [
+      {
+        "name": "def",
+        "value": 21
+      },
+      {
+        "name": "atk%",
+        "value": 5.8
+      },
+      {
+        "name": "crit dmg%",
+        "value": 7.8
+      }
+    ],
+    "enhance": [
+      {
+        "name": "hp%",
+        "value": 4.1
+      }
+    ],
+    "id": "56c33f74-b620-4871-9cbd-f535a7b7f920"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Goblet of Eonothem",
+    "main_stat": "hp%",
+    "sub_stats": [
+      {
+        "name": "crit rate%",
+        "value": 3.9
+      },
+      {
+        "name": "atk",
+        "value": 19
+      },
+      {
+        "name": "crit dmg%",
+        "value": 5.4
+      }
+    ],
+    "enhance": [
+      {
+        "name": "elemental mastery",
+        "value": 21
+      }
+    ],
+    "id": "2422e797-9e15-40af-bd8d-0e3a4872136c"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Goblet of Eonothem",
+    "main_stat": "elemental dmg bonus%",
+    "sub_stats": [
+      {
+        "name": "crit dmg%",
+        "value": 7.8
+      },
+      {
+        "name": "elemental mastery",
+        "value": 19
+      },
+      {
+        "name": "energy recharge",
+        "value": 5.8
+      }
+    ],
+    "enhance": [
+      {
+        "name": "hp",
+        "value": 239
+      }
+    ],
+    "id": "9bdce31e-a306-40bf-b730-5f4ab933ae08"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Flower of Life",
+    "main_stat": "hp",
+    "sub_stats": [
+      {
+        "name": "crit dmg%",
+        "value": 5.4
+      },
+      {
+        "name": "elemental mastery",
+        "value": 19
+      },
+      {
+        "name": "atk",
+        "value": 14
+      }
+    ],
+    "enhance": [
+      {
+        "name": "atk%",
+        "value": 5.8
+      }
+    ],
+    "id": "c29d9d5d-1ec3-4228-8086-38c4ce89e19b"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Flower of Life",
+    "main_stat": "hp",
+    "sub_stats": [
+      {
+        "name": "atk",
+        "value": 14
+      },
+      {
+        "name": "def",
+        "value": 16
+      },
+      {
+        "name": "crit dmg%",
+        "value": 6.2
+      }
+    ],
+    "enhance": [
+      {
+        "name": "def%",
+        "value": 5.1
+      }
+    ],
+    "id": "854e64d3-be5e-4dd9-85ad-cc28ec974d70"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Flower of Life",
+    "main_stat": "hp",
+    "sub_stats": [
+      {
+        "name": "hp%",
+        "value": "5.3"
+      },
+      {
+        "name": "crit dmg%",
+        "value": "7.8"
+      },
+      {
+        "name": "elemental mastery",
+        "value": "23"
+      }
+    ],
+    "enhance": [
+      {
+        "name": "atk%",
+        "value": "4.1"
+      }
+    ],
+    "id": "40e5b714-fc24-4fc3-aed9-5d43663158b8"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Flower of Life",
+    "main_stat": "hp",
+    "sub_stats": [
+      {
+        "name": "crit rate%",
+        "value": "3.5"
+      },
+      {
+        "name": "atk",
+        "value": "18"
+      },
+      {
+        "name": "elemental mastery",
+        "value": "23"
+      }
+    ],
+    "enhance": [
+      {
+        "name": "hp%",
+        "value": 4.7
+      }
+    ],
+    "id": "bfc26cfe-30c1-49a3-b76d-c76a393b3f55"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Flower of Life",
+    "main_stat": "hp",
+    "sub_stats": [
+      {
+        "name": "crit dmg%",
+        "value": 5.4
+      },
+      {
+        "name": "def",
+        "value": 16
+      },
+      {
+        "name": "crit rate%",
+        "value": 3.9
+      }
+    ],
+    "enhance": [
+      {
+        "name": "energy recharge",
+        "value": 5.2
+      }
+    ],
+    "id": "e6c6e2a7-1d0a-4d6a-b1da-7ee5bc712bb6"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "energy recharge",
+    "sub_stats": [
+      {
+        "name": "hp%",
+        "value": 5.3
+      },
+      {
+        "name": "crit dmg%",
+        "value": 7.8
+      },
+      {
+        "name": "def%",
+        "value": 6.6
+      }
+    ],
+    "enhance": [
+      {
+        "name": "atk",
+        "value": "14"
+      }
+    ],
+    "id": "04811966-c00a-4d9c-a1e9-36b25c1f1c01"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Sands of Eon",
+    "main_stat": "energy recharge",
+    "sub_stats": [
+      {
+        "name": "hp",
+        "value": 239
+      },
+      {
+        "name": "def%",
+        "value": 7.3
+      },
+      {
+        "name": "crit dmg%",
+        "value": 7
+      }
+    ],
+    "enhance": [
+      {
+        "name": "def",
+        "value": 16
+      }
+    ],
+    "id": "b482ce59-fc53-4365-a795-c6f7bbb61dd3"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Flower of Life",
+    "main_stat": "hp",
+    "sub_stats": [
+      {
+        "name": "def",
+        "value": 21
+      },
+      {
+        "name": "crit rate%",
+        "value": 3.1
+      },
+      {
+        "name": "atk",
+        "value": 18
+      }
+    ],
+    "enhance": [
+      {
+        "name": "hp%",
+        "value": 5.8
+      }
+    ],
+    "id": "3dbabda5-ab81-48a8-adde-8e16099befb2"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Flower of Life",
+    "main_stat": "hp",
+    "sub_stats": [
+      {
+        "name": "atk%",
+        "value": 5.8
+      },
+      {
+        "name": "hp%",
+        "value": 4.1
+      },
+      {
+        "name": "crit rate%",
+        "value": 3.1
+      }
+    ],
+    "enhance": [
+      {
+        "name": "crit dmg%",
+        "value": 6.2
+      }
+    ],
+    "id": "2afbcf10-fef1-465f-8b11-c42242c6a696"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Goblet of Eonothem",
+    "main_stat": "elemental dmg bonus%",
+    "sub_stats": [
+      {
+        "name": "crit dmg%",
+        "value": "7"
+      },
+      {
+        "name": "def%",
+        "value": "5.1"
+      },
+      {
+        "name": "hp",
+        "value": "269"
+      },
+      {
+        "name": "crit rate%",
+        "value": "3.1"
+      }
+    ],
+    "enhance": [
+      {
+        "name": "crit dmg%",
+        "value": 24.1
+      },
+      {
+        "name": "crit rate%",
+        "value": 3.4999999999999996
+      }
+    ],
+    "times": 5,
+    "id": "269624c9-5886-451a-85f7-043ed7782fcb"
+  },
+  {
+    "artifact_rarity": 5,
+    "artifact_type": "Flower of Life",
+    "main_stat": "hp",
+    "sub_stats": [
+      {
+        "name": "elemental mastery",
+        "value": 23
+      },
+      {
+        "name": "hp%",
+        "value": 4.1
+      },
+      {
+        "name": "crit rate%",
+        "value": 3.1
+      }
+    ],
+    "enhance": [
+      {
+        "name": "def",
+        "value": 16
+      }
+    ],
+    "id": "3f4b4bb6-4a50-4522-ace2-e96ad0992b71"
+  }
+]

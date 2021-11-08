@@ -22,6 +22,7 @@ interface ExpectedStatistics {
   8: StatStatus;
   9: StatStatus;
   10: StatStatus;
+  excluded: number;
   count: number;
   expected: number;
   diff: number;
@@ -137,6 +138,7 @@ const getStatistics = (artifact_enhance: Artifact_Enhance[]) => {
         8: { on: 0, off: 0 },
         9: { on: 0, off: 0 },
         10: { on: 0, off: 0 },
+        excluded: 0,
         count: 0,
         expected: 0.0,
         diff: 0.0,
@@ -158,6 +160,10 @@ const getStatistics = (artifact_enhance: Artifact_Enhance[]) => {
     enhance.enhance.forEach((attribute) => {
       if (attribute.name) {
         if (existed_sub_stats.length === 4) {
+          ALL_ARTIFACT_SUB_STAT.filter((stat) => !existed_sub_stats.includes(stat)).forEach(
+            (stat) => (newExpectedStatistics[stat].excluded += 1)
+          );
+
           existed_sub_stats.forEach((stat) => {
             newExpectedStatistics[stat as Artifact_Sub_Stat].expected += 1 / 4;
 
@@ -172,6 +178,10 @@ const getStatistics = (artifact_enhance: Artifact_Enhance[]) => {
               newExpectedStatistics[attribute.name as Artifact_Sub_Stat].expected;
           });
         } else {
+          ALL_ARTIFACT_SUB_STAT.filter((stat) => !candidate_stats.includes(stat)).forEach(
+            (stat) => (newExpectedStatistics[stat].excluded += 1)
+          );
+
           const index = candidate_stats.length as 4 | 6 | 7 | 8 | 9 | 10;
           candidate_stats.forEach((stat) => {
             newExpectedStatistics[stat].expected += 1 / index;
@@ -202,6 +212,7 @@ const getStatistics = (artifact_enhance: Artifact_Enhance[]) => {
           allStatistics[index - 1][stat][key as 4 | 6 | 7 | 8 | 9 | 10].off;
       });
 
+      statistics[stat].excluded += allStatistics[index - 1][stat].excluded;
       statistics[stat].count += allStatistics[index - 1][stat].count;
       statistics[stat].expected += allStatistics[index - 1][stat].expected;
       statistics[stat].diff = statistics[stat].count - statistics[stat].expected;
@@ -254,12 +265,12 @@ export const ArtifactEnhanceAnalysis = (props: Props) => {
             <Table.Column title='miss' dataIndex={[value, 'off']} key={`${value}.off`} />
           </Table.ColumnGroup>
         ))}
-        {['count', 'expected', 'diff'].map((value) => (
+        {['excluded', 'count', 'expected', 'diff'].map((value) => (
           <Table.Column
             title={value}
             dataIndex={value}
             key={value}
-            render={(val: number) => val.toFixed(2)}
+            render={(val: number) => (Number.isInteger(val) ? val : val.toFixed(2))}
             sorter={(a: any, b: any) => a[value] - b[value]}
           />
         ))}

@@ -36,11 +36,18 @@ export const ArtifactEnhanceStatTag = (props: Props) => {
     }
   }
 
+  const value = !enhance.value
+    ? undefined
+    : Number.isInteger(Number(enhance.value))
+    ? enhance.value
+    : Number(enhance.value).toFixed(2);
+
   return (
     <span className='inline-grid grid-flow-col border-b w-full justify-between'>
       <Tag className={`${className} rounded`}>{enhance.name}</Tag>
       <Tag className={`${tierClassName[tier]} rounded inline-grid grid-cols-2 items-center ml-2`}>
-        {enhance.value} {isMultiple && <PlusCircleTwoTone />}
+        {value}
+        {isMultiple && <PlusCircleTwoTone />}
       </Tag>
     </span>
   );
