@@ -68,8 +68,6 @@ export const ArtifactDropFarm = (props: Props) => {
         />
       ))}
 
-      <ArtifactDropAnalysis analysis={analysis_data} />
-
       {showNewArtifactForm && (
         <NewArtifact
           close={() => setShowNewArtifactForm(false)}
@@ -79,6 +77,8 @@ export const ArtifactDropFarm = (props: Props) => {
           }}
         />
       )}
+
+      <ArtifactDropAnalysis analysis={analysis_data} />
     </div>
   );
 };

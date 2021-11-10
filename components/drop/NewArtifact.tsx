@@ -143,15 +143,16 @@ export const NewArtifact = (props: Props) => {
 
         <Form.Item label='sub stat 1' className='m-0'>
           <Row>
-            <Form.Item name={['sub_stats', 0, 'name']} className='w-2/3'>
+            <Form.Item name={['sub_stats', 0, 'name']} className='w-2/3 mb-1'>
               <Select
+                listHeight={300}
                 placeholder='attribute'
                 showSearch
                 options={subStat1Options}
                 onChange={() => updateAllStatOptions(form)}
               />
             </Form.Item>
-            <Form.Item name={['sub_stats', 0, 'value']} className='w-1/3'>
+            <Form.Item name={['sub_stats', 0, 'value']} className='w-1/3 mb-1'>
               <Select placeholder='value' showSearch options={subStat1ValueOptions} />
             </Form.Item>
           </Row>
@@ -159,15 +160,16 @@ export const NewArtifact = (props: Props) => {
 
         <Form.Item label='sub stat 2' className='m-0'>
           <Row>
-            <Form.Item name={['sub_stats', 1, 'name']} className='w-2/3'>
+            <Form.Item name={['sub_stats', 1, 'name']} className='w-2/3 mb-1'>
               <Select
+                listHeight={300}
                 placeholder='attribute'
                 showSearch
                 options={subStat2Options}
                 onChange={() => updateAllStatOptions(form)}
               />
             </Form.Item>
-            <Form.Item name={['sub_stats', 1, 'value']} className='w-1/3'>
+            <Form.Item name={['sub_stats', 1, 'value']} className='w-1/3 mb-1'>
               <Select placeholder='value' showSearch options={subStat2ValueOptions} />
             </Form.Item>
           </Row>
@@ -175,15 +177,16 @@ export const NewArtifact = (props: Props) => {
 
         <Form.Item label='sub stat 3' className='m-0'>
           <Row>
-            <Form.Item name={['sub_stats', 2, 'name']} className='w-2/3'>
+            <Form.Item name={['sub_stats', 2, 'name']} className='w-2/3 mb-1'>
               <Select
+                listHeight={300}
                 placeholder='attribute'
                 showSearch
                 options={subStat3Options}
                 onChange={() => updateAllStatOptions(form)}
               />
             </Form.Item>
-            <Form.Item name={['sub_stats', 2, 'value']} className='w-1/3'>
+            <Form.Item name={['sub_stats', 2, 'value']} className='w-1/3 mb-1'>
               <Select placeholder='value' showSearch options={subStat3ValueOptions} />
             </Form.Item>
           </Row>
@@ -193,6 +196,7 @@ export const NewArtifact = (props: Props) => {
           <Row>
             <Form.Item name={['sub_stats', 3, 'name']} className='w-2/3'>
               <Select
+                listHeight={300}
                 placeholder='attribute'
                 showSearch
                 options={subStat4Options}

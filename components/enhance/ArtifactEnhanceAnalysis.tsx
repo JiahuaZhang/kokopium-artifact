@@ -15,6 +15,7 @@ interface StatStatus {
   on: number;
   off: number;
 }
+
 interface ExpectedStatistics {
   4: StatStatus;
   6: StatStatus;
@@ -23,6 +24,7 @@ interface ExpectedStatistics {
   9: StatStatus;
   10: StatStatus;
   excluded: number;
+  included: number;
   count: number;
   expected: number;
   diff: number;
@@ -139,6 +141,7 @@ const getStatistics = (artifact_enhance: Artifact_Enhance[]) => {
         9: { on: 0, off: 0 },
         10: { on: 0, off: 0 },
         excluded: 0,
+        included: 0,
         count: 0,
         expected: 0.0,
         diff: 0.0,
@@ -165,6 +168,7 @@ const getStatistics = (artifact_enhance: Artifact_Enhance[]) => {
           );
 
           existed_sub_stats.forEach((stat) => {
+            newExpectedStatistics[stat as Artifact_Sub_Stat].included += 1;
             newExpectedStatistics[stat as Artifact_Sub_Stat].expected += 1 / 4;
 
             if (stat === attribute.name) {
@@ -184,6 +188,7 @@ const getStatistics = (artifact_enhance: Artifact_Enhance[]) => {
 
           const index = candidate_stats.length as 4 | 6 | 7 | 8 | 9 | 10;
           candidate_stats.forEach((stat) => {
+            newExpectedStatistics[stat].included += 1;
             newExpectedStatistics[stat].expected += 1 / index;
             if (stat === attribute.name) {
               newExpectedStatistics[stat][index].on += 1;
@@ -213,6 +218,7 @@ const getStatistics = (artifact_enhance: Artifact_Enhance[]) => {
       });
 
       statistics[stat].excluded += allStatistics[index - 1][stat].excluded;
+      statistics[stat].included += allStatistics[index - 1][stat].included;
       statistics[stat].count += allStatistics[index - 1][stat].count;
       statistics[stat].expected += allStatistics[index - 1][stat].expected;
       statistics[stat].diff = statistics[stat].count - statistics[stat].expected;
@@ -265,7 +271,7 @@ export const ArtifactEnhanceAnalysis = (props: Props) => {
             <Table.Column title='miss' dataIndex={[value, 'off']} key={`${value}.off`} />
           </Table.ColumnGroup>
         ))}
-        {['excluded', 'count', 'expected', 'diff'].map((value) => (
+        {['excluded', 'included', 'count', 'expected', 'diff'].map((value) => (
           <Table.Column
             title={value}
             dataIndex={value}

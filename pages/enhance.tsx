@@ -13,11 +13,11 @@ const Enhance: NextPage = () => {
     <div>
       <ArtifactEnhanceHistory state={state} setState={setState} />
 
-      <ArtifactEnhanceAnalysis artifact_enhance={state} />
-
       <AddArtifactEnhance
         add={(artifactEnhance) => setState((prev) => [...prev, artifactEnhance])}
       />
+
+      <ArtifactEnhanceAnalysis artifact_enhance={state} />
 
       <DownloadAsJson filename='artifact-enhance' data={state} />
     </div>

@@ -220,6 +220,7 @@ export const AddArtifactEnhance = (props: Props) => {
               <Row>
                 <Form.Item name={['sub_stats', 0, 'name']} className='w-2/3 mb-0'>
                   <Select
+                    listHeight={300}
                     placeholder='attribute'
                     showSearch
                     options={subStatOptions[0]}
@@ -235,6 +236,7 @@ export const AddArtifactEnhance = (props: Props) => {
               <Row>
                 <Form.Item name={['sub_stats', 1, 'name']} className='w-2/3 mb-0'>
                   <Select
+                    listHeight={300}
                     placeholder='attribute'
                     showSearch
                     options={subStatOptions[1]}
@@ -250,6 +252,7 @@ export const AddArtifactEnhance = (props: Props) => {
               <Row>
                 <Form.Item name={['sub_stats', 2, 'name']} className='w-2/3 mb-0'>
                   <Select
+                    listHeight={300}
                     placeholder='attribute'
                     showSearch
                     options={subStatOptions[2]}
@@ -265,6 +268,7 @@ export const AddArtifactEnhance = (props: Props) => {
               <Row>
                 <Form.Item name={['sub_stats', 3, 'name']} className='w-2/3 mb-0'>
                   <Select
+                    listHeight={300}
                     placeholder='attribute'
                     showSearch
                     options={subStatOptions[3]}
@@ -280,10 +284,12 @@ export const AddArtifactEnhance = (props: Props) => {
 
           <Col span={12}>
             enhance new sub stat
+            {/* todo, add times indicator? */}
             <Form.Item label='attribute 1' className='m-0'>
               <Row>
                 <Form.Item name={['enhance', 0, 'name']} className='w-2/3 mb-0'>
                   <Select
+                    listHeight={300}
                     allowClear
                     placeholder='attribute'
                     showSearch
@@ -300,6 +306,7 @@ export const AddArtifactEnhance = (props: Props) => {
               <Row>
                 <Form.Item name={['enhance', 1, 'name']} className='w-2/3 mb-0'>
                   <Select
+                    listHeight={300}
                     allowClear
                     placeholder='attribute'
                     showSearch
@@ -316,6 +323,7 @@ export const AddArtifactEnhance = (props: Props) => {
               <Row>
                 <Form.Item name={['enhance', 2, 'name']} className='w-2/3 mb-0'>
                   <Select
+                    listHeight={300}
                     allowClear
                     placeholder='attribute'
                     showSearch
@@ -332,6 +340,7 @@ export const AddArtifactEnhance = (props: Props) => {
               <Row>
                 <Form.Item name={['enhance', 3, 'name']} className='w-2/3 mb-0'>
                   <Select
+                    listHeight={300}
                     allowClear
                     placeholder='attribute'
                     showSearch
