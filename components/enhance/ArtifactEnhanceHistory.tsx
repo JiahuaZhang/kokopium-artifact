@@ -11,7 +11,7 @@ export const ArtifactEnhanceHistory = (props: Props) => {
   const { state, setState } = props;
 
   return (
-    <>
+    <div className='flex flex-wrap'>
       {state.map((s, index) => (
         <ArtifactEnhanceBox
           index={index}
@@ -28,6 +28,6 @@ export const ArtifactEnhanceHistory = (props: Props) => {
           }
         />
       ))}
-    </>
+    </div>
   );
 };
