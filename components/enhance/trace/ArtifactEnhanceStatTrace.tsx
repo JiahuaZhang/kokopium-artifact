@@ -40,7 +40,7 @@ const getStyle = (artifact: Artifact_Enhance, stats: Artifact_Sub_Stat[]) => {
     }
   } else {
     const candidate_stats = ALL_ARTIFACT_SUB_STAT.filter(
-      (stat) => stat !== main_stat || !existed_sub_stats.includes(stat)
+      (stat) => stat !== main_stat && !existed_sub_stats.includes(stat)
     );
     if (candidate_stats.some((stat) => stats.includes(stat))) {
       return 'bg-red-400';
