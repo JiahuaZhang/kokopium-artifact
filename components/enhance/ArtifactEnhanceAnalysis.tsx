@@ -75,10 +75,10 @@ const getStatistics = (artifact_enhance: Artifact_Enhance[]) => {
             newExpectedStatistics[stat as Artifact_Sub_Stat].expected += 1 / 4;
 
             if (stat === attribute.name) {
-              newExpectedStatistics[attribute.name as Artifact_Sub_Stat][4].on += 1;
-              newExpectedStatistics[attribute.name as Artifact_Sub_Stat].count += 1;
+              newExpectedStatistics[stat as Artifact_Sub_Stat][4].on += 1;
+              newExpectedStatistics[stat as Artifact_Sub_Stat].count += 1;
             } else {
-              newExpectedStatistics[attribute.name as Artifact_Sub_Stat][4].off += 1;
+              newExpectedStatistics[stat as Artifact_Sub_Stat][4].off += 1;
             }
             newExpectedStatistics[attribute.name as Artifact_Sub_Stat].diff =
               newExpectedStatistics[attribute.name as Artifact_Sub_Stat].count -
