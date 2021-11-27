@@ -80,9 +80,9 @@ const getStatistics = (artifact_enhance: Artifact_Enhance[]) => {
             } else {
               newExpectedStatistics[stat as Artifact_Sub_Stat][4].off += 1;
             }
-            newExpectedStatistics[attribute.name as Artifact_Sub_Stat].diff =
-              newExpectedStatistics[attribute.name as Artifact_Sub_Stat].count -
-              newExpectedStatistics[attribute.name as Artifact_Sub_Stat].expected;
+            newExpectedStatistics[stat as Artifact_Sub_Stat].diff =
+              newExpectedStatistics[stat as Artifact_Sub_Stat].count -
+              newExpectedStatistics[stat as Artifact_Sub_Stat].expected;
           });
         } else {
           ALL_ARTIFACT_SUB_STAT.filter((stat) => !candidate_stats.includes(stat)).forEach(
