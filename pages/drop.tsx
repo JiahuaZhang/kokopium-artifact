@@ -1,47 +1,26 @@
-import { Table } from 'antd';
 import { NextPage } from 'next';
-import { useState } from 'react';
-import { ArtifactDropFarm } from '../components/drop/ArtifactDropFarm';
-import { NewArtifactDrop } from '../components/drop/NewArtifactDrop';
-import { Artifact_Drop_Farm } from '../src/state/artifact_drop';
+import { useRecoilValue } from 'recoil';
 import { DownloadAsJson } from '../components/common/DownloadAsJson';
-import {
-  AllArtifactDropColumns,
-  getAggregateArtifactDropAnalysis,
-  getArtifactDropAnalysisData,
-} from '../src/util/analysis/drop';
+import ArtifactDomainDrop from '../components/domain/ArtifactDomainDrop';
+import { NewArtifactDomainDrop } from '../components/domain/NewArtifactDomainDrop';
+import { allArtifactDomainsState } from '../src/state/recoil/artifact_domain';
 
 const Drop: NextPage = () => {
-  const [state, setState] = useState<Artifact_Drop_Farm[]>([]);
-
-  const analysisData = state.map((s) => getArtifactDropAnalysisData(s));
-  const aggregateData = getAggregateArtifactDropAnalysis(analysisData);
+  const domainState = useRecoilValue(allArtifactDomainsState);
 
   return (
     <div>
-      {state.map((s, index) => (
-        <ArtifactDropFarm
-          analysis_data={analysisData[index].filter((d) => d.total > 0)}
-          key={s.id}
-          artifact_drop_farm={s}
-          update={(drop) => setState((values) => values.map((v) => (v.id === drop.id ? drop : v)))}
-          remove={(item) => setState((values) => values.filter((v) => v.id !== item.id))}
-        />
+      {domainState.map((state) => (
+        <ArtifactDomainDrop id={state.id} key={state.id} />
       ))}
 
-      <div className='grid grid-flow-col justify-between'>
-        <NewArtifactDrop add={(drop) => setState((values) => [...values, drop])} />
-        <DownloadAsJson filename='artifact-drop' data={state} />
-      </div>
+      <NewArtifactDomainDrop />
 
-      <Table
-        size='small'
-        pagination={false}
-        dataSource={aggregateData.filter((d) => d.total > 0)}
-        columns={AllArtifactDropColumns}
+      <DownloadAsJson
+        className='ml-auto block max-w-max mt-2'
+        filename='artifact_drop'
+        data={domainState}
       />
-
-      {/* todo: enable dev local mode, if there some initial at /public? directory, load the json automaically */}
     </div>
   );
 };
