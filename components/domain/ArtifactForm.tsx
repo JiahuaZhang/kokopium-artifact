@@ -180,7 +180,7 @@ const ArtifactForm = (props: Props) => {
               </Form.Item>
 
               <Form.Item className='w-1/3 mb-1' name={['sub_stats', index, 'value']}>
-                <AutoComplete allowClear placeholder='value' options={subStatOption[1]} />
+                <Select showSearch allowClear placeholder='value' options={subStatOption[1]} />
               </Form.Item>
             </Row>
           </Form.Item>
