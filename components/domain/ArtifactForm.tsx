@@ -1,5 +1,5 @@
 /**@jsxImportSource @emotion/react */
-import { AutoComplete, Button, Form, Image, Radio, Rate, Row, Select, Space } from 'antd';
+import { Button, Form, Image, Radio, Rate, Row, Select, Space } from 'antd';
 import { useEffect, useState } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import {
@@ -30,7 +30,7 @@ const rarityColors = [
 
 const sub_stat_options = ALL_ARTIFACT_SUB_STAT.map(toFormSelection);
 const ArtifactForm = (props: Props) => {
-  const { domainId, artifactId, onUpdateTrigger } = props;
+  const { domainId, artifactId = '', onUpdateTrigger = () => {} } = props;
   const [needSmartUpdate, setNeedSmartUpdate] = useState(true);
   const artifact = useRecoilValue(processArtifactState({ domainId, artifactId, type: 'fetch' }));
   const add = useSetRecoilState(processArtifactState({ domainId, artifactId, type: 'add' }));
@@ -91,6 +91,7 @@ const ArtifactForm = (props: Props) => {
 
     updateFormOptions();
     setNeedSmartUpdate(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [needSmartUpdate]);
 
   return (
@@ -108,10 +109,9 @@ const ArtifactForm = (props: Props) => {
 
           if (artifact.id) {
             update({ ...artifact, ...values });
-            if (onUpdateTrigger) {
-              onUpdateTrigger();
-            }
+            onUpdateTrigger();
           } else {
+            values.sub_stats = values.sub_stats.filter((stat) => Boolean(stat.value));
             add(values);
             form.resetFields();
             form.setFields([{ name: 'rarity', value: rarity }]);
