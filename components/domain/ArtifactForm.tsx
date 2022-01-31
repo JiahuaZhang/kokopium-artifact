@@ -111,7 +111,7 @@ const ArtifactForm = (props: Props) => {
             update({ ...artifact, ...values });
             onUpdateTrigger();
           } else {
-            values.sub_stats = values.sub_stats.filter((stat) => Boolean(stat.value));
+            values.sub_stats = values.sub_stats.filter((stat) => stat.stat && stat.value);
             add(values);
             form.resetFields();
             form.setFields([{ name: 'rarity', value: rarity }]);
