@@ -29,16 +29,15 @@ const getArtifactStyle = (artifact: Artifact) => {
     Boolean
   );
   const crit_counts = stats.reduce((prev, current) => (/^crit/.test(current) ? prev + 1 : prev), 0);
-  const border_color = { 5: 'orange', 4: 'purple', 3: 'sky', 2: 'green', 1: 'gray' }[
-    artifact.rarity
-  ];
-  const styles = [
-    '',
-    `border-2 border-${border_color}-200 border-dashed`,
-    `border-2 border-${border_color}-200`,
-  ];
+  const styles = {
+    5: ['', `border-2 border-orange-200 border-dashed`, `border-2 border-orange-200`],
+    4: ['', `border-2 border-purple-200 border-dashed`, `border-2 border-purple-200`],
+    3: ['', `border-2 border-sky-200 border-dashed`, `border-2 border-sky-200`],
+    2: [],
+    1: [],
+  };
 
-  return styles[crit_counts];
+  return styles[artifact.rarity][crit_counts];
 };
 
 const ArtifactCard = (props: Props) => {
