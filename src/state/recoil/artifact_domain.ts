@@ -1,4 +1,5 @@
-import { atom, selectorFamily } from 'recoil';
+import produce from 'immer';
+import { atom, DefaultValue, selectorFamily } from 'recoil';
 import { v4 } from 'uuid';
 import { Artifact, Artifact_Domain } from '../artifact';
 
@@ -16,6 +17,8 @@ export const processedAllArtifactDomainsState = selectorFamily<Artifact_Domain[]
     return allArtifactDomains.filter(d => d.id === param);
   },
   set: (param) => ({ get, set }, data) => {
+    if (data instanceof DefaultValue) return;
+
     const currentAllArtifactDomains = get(allArtifactDomainsState);
 
     switch (param) {
@@ -23,7 +26,9 @@ export const processedAllArtifactDomainsState = selectorFamily<Artifact_Domain[]
         set(allArtifactDomainsState, data);
         break;
       case 'add':
-        set(allArtifactDomainsState, [...currentAllArtifactDomains, ...(data as Artifact_Domain[])]);
+        set(allArtifactDomainsState, produce(currentAllArtifactDomains, draft => {
+          draft.push(...data);
+        }));
         break;
       case 'delete':
         const filteredAllArtifactDomains = currentAllArtifactDomains.filter(domain => !(data as Artifact_Domain[]).some(d => d.id === domain.id));
@@ -59,42 +64,45 @@ export const processArtifactState = selectorFamily<Artifact, ArtifactParams>({
       .find(artifact => artifact.id === artifactId)!;
   },
   set: ({ domainId, artifactId, type }) => ({ get, set }, data) => {
+    if (data instanceof DefaultValue) return;
+
     const allArtifactDomains = get(allArtifactDomainsState);
-    let newAllArtifactDomains = allArtifactDomains;
+    let newAllArtifactDomains: Artifact_Domain[] = [];
+    let index = -1;
 
     switch (type) {
       case 'add':
-        newAllArtifactDomains = allArtifactDomains.map(domain => {
-          if (domain.id === domainId) {
-            return { ...domain, artifacts: [...domain.artifacts, { ...data, id: v4() } as Artifact] };
-          }
-          return domain;
+        index = allArtifactDomains.findIndex(val => val.id === domainId);
+        if (index === -1) break;
+
+        newAllArtifactDomains = produce(allArtifactDomains, draft => {
+          draft[index] = produce(draft[index], d => {
+            d.artifacts.push(
+              { ...data, id: v4() }
+            );
+          });
         });
         break;
       case 'delete':
-        newAllArtifactDomains = allArtifactDomains.map(domain => {
-          if (domain.id === domainId) {
-            return { ...domain, artifacts: domain.artifacts.filter(artifact => artifact.id !== (data as Artifact).id) };
-          }
-          return domain;
+        index = allArtifactDomains.findIndex(val => val.id === domainId);
+        if (index === -1) break;
+
+        newAllArtifactDomains = produce(allArtifactDomains, draft => {
+          const artifactIndex = draft[index].artifacts.findIndex(val => val.id === data.id);
+          if (artifactIndex === -1) return;
+
+          draft[index].artifacts.splice(artifactIndex, 1);
         });
         break;
       case 'update':
-        newAllArtifactDomains = allArtifactDomains.map(domain => {
-          if (domain.id === domainId) {
-            return {
-              ...domain, artifacts: domain.artifacts.map(
-                artifact => {
-                  if (artifact.id === (data as Artifact).id) {
-                    return data as Artifact;
-                  } else {
-                    return artifact;
-                  }
-                }
-              )
-            };
-          }
-          return domain;
+        index = allArtifactDomains.findIndex(val => val.id === domainId);
+        if (index === -1) break;
+
+        newAllArtifactDomains = produce(allArtifactDomains, draft => {
+          const artifactIndex = draft[index].artifacts.findIndex(val => val.id === data.id);
+          if (artifactIndex === -1) return;
+
+          draft[index].artifacts[artifactIndex] = data;
         });
         break;
       default:

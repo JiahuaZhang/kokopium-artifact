@@ -9,7 +9,8 @@ const selectedKeys: { [key: string]: string } = {
   '/': 'home',
   '/drop': 'drop',
   '/enhance': 'enhance',
-  '/old_drop': 'old drop',
+  '/old_drop': 'old_drop',
+  '/old_enhance': 'old_enhance',
 };
 
 export const ArtifactMenu = (props: Props) => {
@@ -23,18 +24,23 @@ export const ArtifactMenu = (props: Props) => {
         </Link>
       </Menu.Item>
       <Menu.Item key='old_drop' className='ml-auto'>
-        <Link href='old_drop'>
+        <Link href='/old_drop'>
           <a>Old Drop</a>
         </Link>
       </Menu.Item>
-      <Menu.Item key='enhance'>
-        <Link href='enhance'>
-          <a>Artifact Enhance</a>
+      <Menu.Item key='old_enhance'>
+        <Link href='/old_enhance'>
+          <a>Old Enhance</a>
         </Link>
       </Menu.Item>
       <Menu.Item key='drop'>
-        <Link href='drop'>
+        <Link href='/drop'>
           <a>Artifact Drop</a>
+        </Link>
+      </Menu.Item>
+      <Menu.Item key='enhance'>
+        <Link href='/enhance'>
+          <a>Artifact Enhance</a>
         </Link>
       </Menu.Item>
     </Menu>

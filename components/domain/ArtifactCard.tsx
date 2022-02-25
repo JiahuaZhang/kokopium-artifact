@@ -13,7 +13,7 @@ interface Props {
   artifactId: string;
 }
 
-const rarityColors = [
+export const RarityColors = [
   '',
   'text-gray-300',
   'text-green-500',
@@ -22,7 +22,8 @@ const rarityColors = [
   'text-orange-300',
 ];
 
-const getImageUrl = (type: Artifact_Type) => ALL_ARTIFACT_IMAGES.find((a) => a.type === type)?.url;
+export const getImageUrl = (type: Artifact_Type) =>
+  ALL_ARTIFACT_IMAGES.find((a) => a.type === type)?.url;
 
 const getArtifactStyle = (artifact: Artifact) => {
   const stats = [artifact.main_stat, ...artifact.sub_stats.map((stat) => stat.stat)].filter(
@@ -47,7 +48,7 @@ const ArtifactCard = (props: Props) => {
 
   const title = (
     <header className='grid grid-flow-col auto-cols-min gap-2 items-center'>
-      <Rate disabled value={artifact.rarity || 0} className={rarityColors[artifact.rarity]} />
+      <Rate disabled value={artifact.rarity || 0} className={RarityColors[artifact.rarity]} />
       <Image width={36} src={getImageUrl(artifact.type)} alt={artifact.type} preview={false} />
       <ArtifactMainStatHeader domainId={domainId} artifactId={artifactId} />
     </header>

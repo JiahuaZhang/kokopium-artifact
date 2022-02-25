@@ -9,7 +9,7 @@ interface Props {
   artifactId: string;
 }
 
-const displayNames: { [key in Artifact_Main_Stat]: string } = {
+export const MainStatDisplayNames: { [key in Artifact_Main_Stat]: string } = {
   atk: 'atk',
   'atk%': 'atk%',
   'crit dmg%': 'crit dmg%',
@@ -55,7 +55,7 @@ const ArtifactMainStatHeader = (props: Props) => {
       break;
   }
 
-  const displayName = displayNames[artifact.main_stat];
+  const displayName = MainStatDisplayNames[artifact.main_stat];
 
   return (
     <span className={`${className} px-1 rounded`}>
