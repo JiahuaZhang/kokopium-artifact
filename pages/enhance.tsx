@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import { useRecoilValue } from 'recoil';
 import { DownloadAsJson } from '../components/common/DownloadAsJson';
 import ArtifactEnhanceForm from '../components/upgrade/ArtifactEnhanceForm';
-import EnhanceHistory from '../components/upgrade/EnhanceHistory';
+import { EnhanceHistory } from '../components/upgrade/EnhanceHistory';
 import { allEnhancedArtiifactsState } from '../src/state/recoil/artifact_enhance';
 
 const Enhance: NextPage = () => {

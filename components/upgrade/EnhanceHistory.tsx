@@ -5,7 +5,7 @@ import { EnhanceArtifactCard } from './EnhanceArtifact';
 
 type Props = {};
 
-const EnhanceHistory = (props: Props) => {
+export const EnhanceHistory = (props: Props) => {
   const enhanceArtiafctsState = useRecoilValue(allEnhancedArtiifactsState);
 
   return (
@@ -16,5 +16,3 @@ const EnhanceHistory = (props: Props) => {
     </div>
   );
 };
-
-export default EnhanceHistory;

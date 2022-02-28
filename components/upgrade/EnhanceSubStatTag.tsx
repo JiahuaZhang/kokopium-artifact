@@ -55,7 +55,7 @@ const EnhanceSubStatTag = (props: Props) => {
       <span className={`px-2 py-1 rounded ${StatNameClass[sub_stat.stat]}`}>{sub_stat.stat}</span>
       <Popover title={tierBoard}>
         <span className={`${TierClassName[approximateTierIndex]} px-2 py-1 rounded`}>
-          {sub_stat.value}
+          {sub_stat.value.toFixed(2)}
         </span>
       </Popover>
     </div>
