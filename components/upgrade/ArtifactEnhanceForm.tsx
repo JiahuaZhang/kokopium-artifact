@@ -152,8 +152,12 @@ const ArtifactEnhanceForm = (props: Props) => {
     let current_form: Enhanced_Artifact = form.getFieldsValue();
     add(smartAdjustEnhance(current_form));
     current_form = cloneDeep(current_form);
-    let { artifact, enhancements } = current_form;
-    let { sub_stats } = artifact;
+    let {
+      artifact: { sub_stats },
+      enhancements,
+    } = current_form;
+
+    sub_stats = sub_stats.filter((stat) => stat.stat && stat.value);
 
     enhancements.forEach((enhance) => {
       if (enhance.stat && enhance.value) {
@@ -166,18 +170,17 @@ const ArtifactEnhanceForm = (props: Props) => {
             times: enhance.times,
           });
         } else {
-          current_form.artifact.sub_stats[index].value =
-            enhance.value || sub_stats[index].value || 0;
+          sub_stats[index].value = enhance.value || sub_stats[index].value || 0;
         }
       }
     });
 
-    sub_stats = sub_stats.filter((stat) => Boolean(stat.stat));
     current_form.enhancements = enhancements.map(
       () => ({ value: 0, times: 1 } as Artifact_Sub_Stat_Enhance)
     );
-
+    current_form.artifact.sub_stats = sub_stats;
     current_form.artifact.id = '';
+
     form.setFieldsValue(current_form);
     updateForm();
     initDefaultTimes();
@@ -214,11 +217,6 @@ const ArtifactEnhanceForm = (props: Props) => {
         onFinish={(value: Enhanced_Artifact) => {
           if (id) {
             value.artifact.id = id;
-            value.artifact.sub_stats = value.artifact.sub_stats.map((stat) => ({
-              ...stat,
-              value: Number(stat.value),
-            }));
-            value.enhancements = value.enhancements.map((e) => ({ ...e, value: Number(e.value) }));
             update(value);
             onUpdateTrigger();
           } else {

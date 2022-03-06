@@ -20,7 +20,6 @@ export const handleAllArtifactEnhancementsState = selectorFamily<Enhanced_Artifa
     if (data instanceof DefaultValue) return;
 
     const allEnhancedArtiifacts = get(allEnhancedArtiifactsState);
-    let index = -1;
 
     switch (param) {
       case 'init':
@@ -69,8 +68,8 @@ export const handleEnhanceArtifactState = selectorFamily<Enhanced_Artifact, Enha
     switch (params) {
       case 'add':
         data.artifact.id = v4();
-        data.artifact.sub_stats = data.artifact.sub_stats.filter(stat => stat.stat && stat.value);
-        data.enhancements = data.enhancements.filter(stat => stat.stat && stat.value);
+        data.artifact.sub_stats = data.artifact.sub_stats.filter(stat => stat.stat && stat.value).map(stat => ({ ...stat, value: Number(stat.value) }));
+        data.enhancements = data.enhancements.filter(stat => stat.stat && stat.value).map(enhance => ({ ...enhance, value: Number(enhance.value) }));
         newAllEnhancedArtiifacts = produce(allEnhancedArtiifacts, draft => { draft.push(data); });
         break;
       case 'delete':
@@ -86,6 +85,8 @@ export const handleEnhanceArtifactState = selectorFamily<Enhanced_Artifact, Enha
         if (index === -1) break;
 
         newAllEnhancedArtiifacts = produce(allEnhancedArtiifacts, draft => {
+          data.artifact.sub_stats = data.artifact.sub_stats.filter(stat => stat.stat && stat.value).map(stat => ({ ...stat, value: Number(stat.value) }));
+          data.enhancements = data.enhancements.filter(stat => stat.stat && stat.value).map(enhance => ({ ...enhance, value: Number(enhance.value) }));
           draft[index] = data;
         });
         break;
