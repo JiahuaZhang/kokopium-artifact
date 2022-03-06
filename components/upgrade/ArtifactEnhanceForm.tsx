@@ -214,6 +214,11 @@ const ArtifactEnhanceForm = (props: Props) => {
         onFinish={(value: Enhanced_Artifact) => {
           if (id) {
             value.artifact.id = id;
+            value.artifact.sub_stats = value.artifact.sub_stats.map((stat) => ({
+              ...stat,
+              value: Number(stat.value),
+            }));
+            value.enhancements = value.enhancements.map((e) => ({ ...e, value: Number(e.value) }));
             update(value);
             onUpdateTrigger();
           } else {
